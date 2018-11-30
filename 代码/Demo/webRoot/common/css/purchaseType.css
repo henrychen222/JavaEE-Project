@@ -1,0 +1,811 @@
+.top-nav {
+  background: #f7f7f7;
+}
+.top-nav .top-nav-wrap {
+  padding: 0;
+}
+.header {
+  width: 1240px;
+  margin: 0 auto;
+  padding: 13px 0;
+  /* 搜索bar */
+}
+.header .logo-wrap {
+  float: left;
+}
+.header .logo-wrap .logo {
+  display: block;
+  width: 172px;
+  height: 65px;
+  float: left;
+  background: url(../jhShop/logo2.png) no-repeat;
+}
+.header .logo-wrap .logo-tip {
+  width: 123px;
+  height: 34px;
+  margin: 23px 0 0 23px;
+  float: left;
+  background: url(../jhShop/logo2-right.png) no-repeat;
+}
+.header .search-bar-wrap {
+  float: left;
+  margin-left: 56px;
+  margin-top: 16px;
+  border: 0;
+}
+.header .search-bar-wrap .input-txt {
+  float: left;
+  height: 28px;
+  line-height: 28px;
+  text-align: left;
+  color: #adadad;
+  border: 2px solid #e69b02;
+  border-right: 0;
+}
+.header .search-bar-wrap a.sear-btn,
+.header .search-bar-wrap a.sear-shop-btn {
+  display: block;
+  padding: 0 13px;
+  height: 32px;
+  line-height: 32px;
+  float: left;
+  background: #e69b02;
+  color: #fff;
+  font-size: 18px;
+  border: 2px solid #e69b02;
+}
+.header .search-bar-wrap a.sear-btn:hover,
+.header .search-bar-wrap a.sear-shop-btn:hover {
+  background: #123457;
+  border-color: #123457;
+}
+.header .search-bar-wrap a.sear-shop-btn {
+  margin-left: 2px;
+}
+.header .right-infor {
+  float: right;
+}
+.header .right-infor ul li {
+  float: left;
+  display: block;
+  background: #f9f9f9;
+  width: 139px;
+  height: 50px;
+  margin-left: 2px;
+  margin-top: 9px;
+}
+.header .right-infor ul li p {
+  text-align: center;
+  font-size: 12px;
+  color: #a0a0a0;
+  font-family: "SimSun";
+}
+.header .right-infor ul li p.num {
+  font-weight: bold;
+  font-size: 24px;
+  font-family: "Microsoft YaHei";
+  color: #ee4e4e;
+  margin-top: 4px;
+  line-height: 26px;
+}
+.header .right-infor ul li p.num img {
+  margin: -3px 0 0 5px;
+}
+.center {
+  width: 1240px;
+  margin: 7px auto 0;
+  clear: both;
+  position: relative;
+}
+.center .nav-wrap .left-menu-wrap {
+  float: left;
+  width: 237px;
+  position: relative;
+}
+/* .center .nav-wrap .left-menu-wrap .tit {
+  background: #123457;
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+   border-bottom: 1px solid #123457;
+} */
+.center .nav-wrap .left-menu-wrap .content {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  z-index: 999;
+  width: 237px;
+}
+.center .nav-wrap .left-menu-wrap .content ul li {
+  font-size: 14px;
+  cursor: pointer;
+  clear: both;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-tit {
+  background: #1a426b;
+  color: #d1e8ff;
+  text-align: left;
+  padding-left: 75px;
+  height: 25px;
+  line-height: 25px;
+  position: relative;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-tit .inner-wrap a {
+  float: left;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-tit a {
+  float: right;
+  color: #6f9bc7;
+  font-size: 12px;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-tit a:hover {
+  color: #123457;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-tit span.right-mark {
+  display: block;
+  float: right;
+  width: 6px;
+  height: 10px;
+  margin: 8px 15px 0 5px;
+  background: url(../jhShop/arrow-right2.png) no-repeat;
+}
+.center .nav-wrap .left-menu-wrap .content ul li#moreType:hover {
+  background: #f6f6f6;
+  border-color: #f6f6f6;
+  border-right: 0;
+  color: #123457;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item {
+  position: relative;
+  height: 32px;
+  line-height: 32px;
+  background: #184c81;
+  color: #fff;
+  border: 1px solid #184c81;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item span.txt {
+  float: left;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item span.menu-icon {
+  display: block;
+  width: 22px;
+  height: 18px;
+  margin-top: 11px;
+  margin-left: 13px;
+  margin-right: 18px;
+  float: left;
+  background: url(../jhShop/nav-icon.png) no-repeat;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item span.right-mark {
+  display: block;
+  float: right;
+  width: 6px;
+  height: 10px;
+  margin: 13px 15px 0 0;
+  background: url(../jhShop/arrow-right2.png) no-repeat;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item div.mask {
+  position: absolute;
+  display: none;
+  left: 234px;
+  top: 1px;
+  width: 1px;
+  height: 32px;
+  background: #f6f6f6;
+  z-index: 2;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item span.menu-icon1 {
+  background: url(../jhShop/nav-icon/zt1.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item span.menu-icon2 {
+  background: url(../jhShop/nav-icon/g1.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item span.menu-icon3 {
+  background: url(../jhShop/nav-icon/y1.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item span.menu-icon4 {
+  background: url(../jhShop/nav-icon/sf1.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item span.menu-icon5 {
+  background: url(../jhShop/nav-icon/cj1.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item span.menu-icon6 {
+  background: url(../jhShop/nav-icon/pf1.jpg) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item span.menu-icon7 {
+  background: url(../jhShop/nav-icon/gzw1.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item span.menu-icon8 {
+  background: url(../jhShop/nav-icon/yl1.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item span.menu-icon9  {
+  background: url(../jhShop/nav-icon/xx1.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item span.menu-icon10 {
+  background: url(../jhShop/nav-icon/jd1.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item span.menu-icon11 {
+  background: url(../jhShop/nav-icon/sys1.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item span.menu-icon12 {
+  background: url(../jhShop/nav-icon/bwg1.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item span.menu-icon13 {
+  background: url(../jhShop/nav-icon/yh1.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item span.menu-icon14 {
+  background: url(../jhShop/nav-icon/ggj1.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul .inner-wrap {
+  display: none;
+  position: absolute;
+  width: 383px;
+  height: 505px;
+  left: 236px;
+  top: -1px;
+  z-index: 1;
+  border-top: 1px solid #123457;
+  background: #f6f6f6;
+}
+.center .nav-wrap .left-menu-wrap .content ul .inner-wrap ul {
+  float: left;
+}
+.center .nav-wrap .left-menu-wrap .content ul .inner-wrap ul li {
+  padding-left: 15px;
+  cursor: default;
+}
+.center .nav-wrap .left-menu-wrap .content ul .inner-wrap ul li a {
+  color: #696969;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 40px;
+}
+.center .nav-wrap .left-menu-wrap .content ul .inner-wrap ul li a:hover {
+  color: #e69b02;
+  font-weight: bold;
+}
+.center .nav-wrap .left-menu-wrap .content ul .inner-wrap ul li span.line {
+  display: block;
+  float: right;
+  width: 1px;
+  height: 10px;
+  background: #dfdfdf;
+  margin: 15px 0 0 8px;
+}
+.center .nav-wrap .left-menu-wrap .content ul .inner-wrap .right-shop {
+  float: right;
+  margin-right: 14px;
+  margin-top: 15px;
+}
+.center .nav-wrap .left-menu-wrap .content ul .inner-wrap .right-shop a {
+  display: block;
+  float: left;
+  width: 68px;
+  height: 25px;
+  padding:5px;
+  margin-right: 1px;
+  margin-bottom: 1px;
+  background: #ededed;
+}
+.center .nav-wrap .left-menu-wrap .content ul .inner-wrap .right-shop a img {
+  display: block;
+ width: 68px;
+  height: 25px;
+}
+.center .nav-wrap .left-menu-wrap .content ul .inner-wrap .right-shop .pro-hot {
+  width: 167px;
+  height: 150px;
+}
+.center .nav-wrap .left-menu-wrap .content ul .inner-wrap .right-shop .pro-hot a {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul .inner-wrap .right-shop .pro-hot a p {
+  line-height: 18px;
+}
+.center .nav-wrap .left-menu-wrap .content ul .inner-wrap .right-shop .pro-hot a p.blue {
+  color: #1a426b;
+  font-size: 14px;
+  margin-top: 12px;
+  margin-left: 10px;
+}
+.center .nav-wrap .left-menu-wrap .content ul .inner-wrap .right-shop .pro-hot a p.grey {
+  color: #868686;
+  font-size: 12px;
+  margin-left: 10px;
+}
+.center .nav-wrap .left-menu-wrap .content ul .inner-wrap .right-shop .pro-hot a img {
+  float: right;
+  clear: both;
+  margin-right: 15px;
+  margin-bottom: 25px;
+  margin-top: -2px;
+}
+.center .nav-wrap .left-menu-wrap .content ul .inner-wrap .right-shop a:hover {
+  background: #e1dcdc;
+}
+.center .nav-wrap .left-menu-wrap .content ul li#moreType .inner-wrap {
+  left: 237px;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item:hover {
+  background: #f6f6f6;
+  border-color: #f6f6f6;
+  border-right: 0;
+  color: #123457;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item:hover span.menu-icon {
+  background: url(../jhShop/nav-icon-on.png) no-repeat;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item:hover span.menu-icon1 {
+  background: url(../jhShop/nav-icon/zt2.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item:hover span.menu-icon2 {
+  background: url(../jhShop/nav-icon/g2.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item:hover span.menu-icon3 {
+  background: url(../jhShop/nav-icon/y2.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item:hover span.menu-icon4 {
+  background: url(../jhShop/nav-icon/sf2.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item:hover span.menu-icon5 {
+  background: url(../jhShop/nav-icon/cj2.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item:hover span.menu-icon6 {
+  background: url(../jhShop/nav-icon/pf2.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item:hover span.menu-icon7  {
+  background: url(../jhShop/nav-icon/gzw2.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item:hover span.menu-icon8 {
+  background: url(../jhShop/nav-icon/yl2.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item:hover span.menu-icon9 {
+  background: url(../jhShop/nav-icon/xx2.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item:hover span.menu-icon10{
+  background: url(../jhShop/nav-icon/jd2.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item:hover span.menu-icon11 {
+  background: url(../jhShop/nav-icon/sys2.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item:hover span.menu-icon12 {
+  background: url(../jhShop/nav-icon/bwg2.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item:hover span.menu-icon13 {
+  background: url(../jhShop/nav-icon/yh2.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item:hover span.menu-icon14 {
+  background: url(../jhShop/nav-icon/ggj2.png) no-repeat 0 0;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item1 .inner-wrap {
+  top: -27px;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item2 .inner-wrap {
+  top: -61px;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item3 .inner-wrap {
+  top: -95px;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item4 .inner-wrap {
+  top: -129px;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item5 .inner-wrap {
+  top: -163px;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-item6 .inner-wrap {
+  top: -197px;
+}
+.center .nav-wrap .left-menu-wrap .content ul li.menu-tit .inner-wrap {
+  top: -266px;
+}
+
+.center .nav-wrap .right-cont-wrap {
+  float: left;
+  width: 1003px;
+  position: relative;
+}
+/* .center .nav-wrap .right-cont-wrap {
+  float: left;
+  width: 1003px;
+  position: relative;
+}
+.center .nav-wrap .right-cont-wrap .nav-wrap-inner {
+  width: 100%;
+  border-bottom: 2px solid #123457;
+}
+.center .nav-wrap .right-cont-wrap .nav-wrap-inner ul.left-nav {
+  float: left;
+}
+.center .nav-wrap .right-cont-wrap .nav-wrap-inner ul.left-nav li {
+  float: left;
+  margin-right: 5px;
+  position: relative;
+}
+.center .nav-wrap .right-cont-wrap .nav-wrap-inner ul.left-nav li a {
+  display: block;
+  position: relative;
+  text-align: center;
+  height: 39px;
+  line-height: 40px;
+  width: 108px;
+  font-size: 18px;
+  color: #000;
+}
+.center .nav-wrap .right-cont-wrap .nav-wrap-inner ul.left-nav li a i.icon-new {
+  position: absolute;
+  top: 2px;
+  right: 8px;
+  width: 27px;
+  height: 17px;
+  background: url(../jhShop/angle-icon-new.png) no-repeat;
+}
+.center .nav-wrap .right-cont-wrap .nav-wrap-inner ul.left-nav li a i.icon-hot {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  width: 27px;
+  height: 17px;
+  background: url(../jhShop/angle-icon-hot.png) no-repeat;
+}
+.center .nav-wrap .right-cont-wrap .nav-wrap-inner ul.left-nav li a:hover {
+  background: #e69b02;
+  color: #fff;
+}
+.center .nav-wrap .right-cont-wrap .nav-wrap-inner ul.left-nav li ul {
+  position: absolute;
+  top: 39px;
+  left: 0;
+  z-index: 5;
+  display: none;
+}
+.center .nav-wrap .right-cont-wrap .nav-wrap-inner ul.left-nav li ul li {
+  border-top: 1px solid #f6bc46;
+}
+.center .nav-wrap .right-cont-wrap .nav-wrap-inner ul.left-nav li ul li a {
+  background: #e69b02!important;
+  color: #000!important;
+}
+.center .nav-wrap .right-cont-wrap .nav-wrap-inner ul.left-nav li.active a {
+  background: #e69b02;
+  color: #fff;
+} */
+.center .sear-condit {
+  border-bottom: 1px solid #e3e3e3;
+}
+.center .sear-condit .condition-tit {
+  font-size: 14px;
+  color: #000;
+  height: 43px;
+  line-height: 43px;
+  font-family: "Microsoft YaHei";
+  font-weight: normal;
+}
+.center .sear-condit .condition-tit i {
+  color: #a0a0a0;
+  font-style: normal;
+}
+.center .sear-condit .list {
+  line-height: 48px;
+  border: 1px solid #e3e3e3;
+  border-bottom: 0;
+}
+.center .sear-condit .list .tit {
+  width: 91px;
+  float: left;
+  margin-left: 15px;
+  font-size: 12px;
+  color: #a0a0a0;
+}
+.center .sear-condit .list .cont {
+  float: left;
+  width: 1087px;
+  position: relative;
+  margin-left: 45px;
+}
+.center .sear-condit .list .cont ul.typelist {
+  float: left;
+}
+.center .sear-condit .list .cont ul.typelist li {
+  float: left;
+  display: inline-block;
+  min-width: 105px;
+  text-align: left;
+}
+.center .sear-condit .list .cont ul.typelist li a {
+  font-size: 12px;
+  color: #646464;
+}
+.center .sear-condit .list .cont ul.typelist li a:hover {
+  color: #e69b02;
+}
+.center .sear-condit .list .cont ul.typelist li.active a {
+  font-size: 14px;
+}
+.center .sear-condit .list .cont a.more-type {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 10px;
+  font-size: 12px;
+  color: #646464;
+  font-family: "SimSun";
+}
+.center .sear-condit .list .cont a.more-type:hover {
+  color: #e69b02;
+}
+.center .sear-condit .btn-wrap {
+  height: 54px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 54px;
+}
+.center .sear-condit .btn-wrap .btn-ok {
+  display: inline-block;
+  background: #003366;
+  margin-right: 27px;
+  color: #fff;
+  height: 26px;
+  line-height: 26px;
+  width: 73px;
+  text-align: center;
+}
+.center .sear-condit .btn-wrap .btn-ok:hover {
+  background: #0c4682;
+}
+.center .sear-condit .btn-wrap .btn-cancel {
+  display: inline-block;
+  background: #f4f4f4;
+  color: #000;
+  height: 26px;
+  line-height: 26px;
+  width: 73px;
+  text-align: center;
+  border: 1px solid #a3a3a3;
+}
+.center .sear-condit .btn-wrap .btn-cancel:hover {
+  color: #003366;
+  border-color: #003366;
+}
+.center .pro-list-wrap {
+  margin-top: 20px;
+}
+.center .pro-list-wrap ul li {
+  height: 425px;
+  position: relative;
+  margin-top: -1px;
+  margin-left: -1px;
+  width: 289px;
+  float: left;
+  padding: 5px 10px;
+  border: 1px solid #dfdfdf;
+}
+/* .center .pro-list-wrap ul li .pro-img {
+  display: block;
+  height: 290px;
+} */
+.center .pro-list-wrap ul li .pro-img img {
+ /*  width: 200px;
+  margin: 33px auto;
+  display: block; */
+  
+  width: 280px;
+height: 280px;
+margin: 10px auto;
+display: block;
+}
+.center .pro-list-wrap ul li .pro-name {
+  display: block;
+  text-align: left;
+  color: #6d6d6d;
+  font-size: 14px;
+  line-height: 20px;
+  height:40px;
+  word-break: break-all;
+}
+.center .pro-list-wrap ul li .pro-name:hover {
+  color: #e69b02;
+}
+.center .pro-list-wrap ul li p {
+  font-size: 12px;
+  overflow: hidden;
+  color: #a0a0a0;
+  line-height: 22px;
+  font-family: "SimSun";
+}
+.center .pro-list-wrap ul li p .price {
+  float: left;
+}
+.center .pro-list-wrap ul li p .price i {
+  font-style: normal;
+  color: #e22222;
+  font-size: 18px;
+  font-family: "Arial";
+}
+.center .pro-list-wrap ul li p .order-per {
+  float: right;
+}
+.center .pro-list-wrap ul li p .order-per i {
+  font-style: normal;
+  color: #383838;
+  font-size: 14px;
+  font-family: "Arial";
+}
+.center .pro-list-wrap ul li p.time-last {
+  color: #6d6d6d;
+}
+.center .pro-list-wrap ul li a.shopname {
+  font-size: 12px;
+  overflow: hidden;
+  color: #a0a0a0;
+  line-height: 26px;
+}
+.center .pro-list-wrap ul li a.shopname:hover {
+  color: #e69b02;
+}
+.center .pro-list-wrap ul li .angle {
+  position: absolute;
+  top: -4px;
+  left: 11px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 38px;
+  text-align: center;
+  width: 48px;
+  height: 43px;
+  background: url(../jhShop/angle-icon-top.png) no-repeat;
+}
+.center .pro-list-wrap ul li:hover {
+  border: 3px solid #dedede;
+  padding: 3px 8px;
+}
+.center .pro-list-wrap ul li:hover .angle {
+  top: -6px;
+  left: 9px;
+}
+.center .page-nav {
+  margin: 22px auto 30px;
+}
+.tool-bar {
+  background: #dfdfdf;
+  overflow: hidden;
+  height: 50px;
+  margin-top: 20px;
+}
+.tool-bar ul {
+  float: left;
+}
+.tool-bar ul li {
+  float: left;
+  padding: 0 14px;
+  position: relative;
+  z-index: 1;
+  color: #646464;
+  font-size: 12px;
+  font-family: "SimSun";
+  line-height: 50px;
+}
+.tool-bar ul li a {
+  color: #646464;
+  font-size: 12px;
+  font-family: "SimSun";
+  line-height: 50px;
+}
+
+.tool-bar ul li .asc {
+  padding-right: 9px;
+  background: url("../jhShop/arrow-up2.png")  right 1px no-repeat;
+}
+
+.tool-bar ul li .desc {
+  padding-right: 9px;
+  background: url("../jhShop/arrow-down2.png")  right 2px no-repeat;
+}
+
+.tool-bar ul li a:hover {
+  color: #e69b02;
+}
+.tool-bar ul li span.line {
+  position: absolute;
+  right: 0;
+  top: 20px;
+  z-index: 2;
+  background: #c0c0c0;
+  height: 10px;
+  width: 1px;
+}
+.tool-bar ul li .price-wrap {
+  float: left;
+  height: 20px;
+  width: 50px;
+  background: #fff;
+  border: 1px solid #b6b6b6;
+  margin-top: 15px;
+}
+.tool-bar ul li .price-wrap span {
+  margin-left: 6px;
+  float: left;
+  line-height: 20px;
+  color: #9a9a9a;
+}
+.tool-bar ul li .price-wrap input {
+  float: left;
+  width: 30px;
+  line-height: 20px;
+  height: 20px;
+  background: none;
+  outline: none;
+  color: #9a9a9a;
+  font-size: 12px;
+  font-family: "SimSun";
+}
+.tool-bar ul li span.txt {
+  float: left;
+}
+.tool-bar ul li span.to {
+  line-height: 60px;
+  margin: 0 7px;
+  float: left;
+}
+.tool-bar ul li a.btn-ok {
+  display: block;
+  float: left;
+  background: #7a7a7a;
+  border: 1px solid #6d6d6d;
+  color: #d6d6d6;
+  width: 50px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  margin-left: 12px;
+  margin-top: 15px;
+}
+.tool-bar ul li a.btn-ok:hover {
+  color: #fff;
+}
+.tool-bar ul li .arrow {
+  margin: 3px 0 0 3px;
+}
+.tool-bar ul li.active a {
+  color: #292929;
+}
+.tool-bar ul li.active a:hover {
+  color: #292929;
+}
+.right-page-wrap {
+  float: right;
+}
+.right-page-wrap a.prev-page {
+  display: block;
+  overflow: hidden;
+  float: left;
+  text-indent: 50px;
+  width: 30px;
+  height: 50px;
+  background: url(../jhShop/arrow-left4.png) no-repeat center center;
+}
+.right-page-wrap a.next-page {
+  display: block;
+  overflow: hidden;
+  float: left;
+  text-indent: 50px;
+  width: 30px;
+  height: 50px;
+  background: url(../jhShop/arrow-right6.png) no-repeat center center;
+}
+.right-page-wrap span.page-num {
+  float: left;
+  line-height: 50px;
+  font-size: 12px;
+  color: #646464;
+  font-family: "SimSun";
+}
+.right-page-wrap span.page-num i {
+  font-style: normal;
+  color: #282828;
+}

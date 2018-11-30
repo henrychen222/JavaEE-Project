@@ -1,0 +1,188 @@
+@charset "utf-8";
+/** 重置图片元素 **/
+img {
+  border: 0;
+}
+/* 字体 reset */
+body {
+  font-size: 14px;
+  font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+  color: #000;
+}
+.font-big {
+  font-size: 16px;
+}
+/* 字体-大号 */
+.font-middle {
+  font-size: 15px;
+}
+/* 字体-中号 */
+.font-small {
+  font-size: 14px;
+}
+/* 字体-小号 */
+/* css reset */
+html,
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+input,
+textarea,
+p,
+th,
+td,
+img,
+span {
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol {
+  list-style: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  text-decoration: none;
+  color: #000000;
+}
+a:hover {
+  text-decoration: none;
+  color: #000000;
+}
+input {
+  border: 0;
+  font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+}
+input[type='submit'],
+input[type='button'] {
+  cursor: pointer;
+}
+img {
+  border: 0;
+}
+iframe {
+  border: 0;
+}
+/* 清浮动 */
+.clear {
+  clear: both;
+}
+.clear-no-height {
+  height: 0;
+  clear: both;
+}
+/* 浮动 */
+.f-r {
+  float: right;
+}
+.f-l {
+  float: left;
+}
+
+
+.user-level-ico{
+	vertical-align: bottom;
+	padding: 0px 10px;
+}
+
+.phcolor{ color:#999;}
+
+
+
+.text-ellipsis{
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	font-size: 12px;
+	color:#a0a0a0;
+	display: block;
+}
+
+.a-name-link:HOVER{
+	color: orange;
+}
+
+.gotop { 
+	width:45px;
+	height:45px;
+	display:block;
+	background-color: rgba(145,145,145,0.7);
+	border-radius:25px;
+	transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s;
+	-webkit-transition: background-color 0.5s;
+	-o-transition: background-color 0.5s;
+}
+
+.gotop .sj{
+	display:block;
+	width:35px;
+	height:35px;
+	background:url("../images/up.png");
+	background-size:100% 100%;  
+	position: relative;
+	margin:0 auto;
+	margin-top:4px;
+	z-index: 99;
+}
+
+.gotop:HOVER{
+	background-color: rgba(145,145,145,1);
+}
+
+.gotop:HOVER .sj-des{
+	display: inherit;
+}
+
+.gotop .sj-des{
+	margin: 0 auto;
+	position: absolute;
+	color: #999;
+	text-align:center;
+	padding: 2px 2px;
+	top:45px;
+	display: none;
+}
+
+@media \0screen\,screen\9 {/* 只支持IE6、7、8 */
+
+	.gotop { 
+		width:45px;
+		height:45px;
+		display:block;
+		border-radius:25px;
+		transition: background-color 0.5s;
+		-moz-transition: background-color 0.5s;
+		-webkit-transition: background-color 0.5s;
+		-o-transition: background-color 0.5s;
+		background-color:#919191;
+	    filter:Alpha(opacity=70);
+	    position:static; /* IE6、7、8只能设置position:static(默认属性) ，否则会导致子元素继承Alpha值 */
+	    *zoom:1; /* 激活IE6、7的haslayout属性，让它读懂Alpha */
+	}
+	
+	.gotop:HOVER{
+		background-color:#919191;
+	    filter:Alpha(opacity=100);
+	    position:static; /* IE6、7、8只能设置position:static(默认属性) ，否则会导致子元素继承Alpha值 */
+	    *zoom:1; /* 激活IE6、7的haslayout属性，让它读懂Alpha */
+	}
+	
+
+}
+

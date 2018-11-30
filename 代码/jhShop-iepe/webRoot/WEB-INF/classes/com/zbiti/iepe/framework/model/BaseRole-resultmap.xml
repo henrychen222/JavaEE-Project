@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BaseRole">
+	<resultMap type="com.zbiti.iepe.framework.model.BaseRole" id="BaseRoleResultMap">
+		<id property="roleId" column="role_id"/>
+		<result property="roleName" column="role_name"/>
+		<result property="createOp" column="create_op"/>
+		<result property="createOpName" column="user_name"/>
+		<result property="roleTypeCd" column="role_type_cd"/>
+		<result property="roleTypeCdName" column="role_type_cd_name"/>
+		<result property="roleDesc" column="role_desc"/>
+		<result property="isDelete" column="is_delete"/>
+		<result property="org_id" column="org_id"/>
+		<result property="org_name" column="org_name"/>
+		<result property="roleStartTime" column="start_date" javaType="Date" jdbcType="DATE"/>
+		<result property="roleEndTime" column="end_date" javaType="Date" jdbcType="DATE"/>
+	</resultMap>
+</mapper>

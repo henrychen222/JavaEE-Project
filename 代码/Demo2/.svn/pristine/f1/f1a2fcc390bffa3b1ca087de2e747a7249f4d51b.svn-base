@@ -1,0 +1,99 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=GB2312">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <script type="text/javascript" src="/wmShop/common/js/libs/jquery-1.11.1.min.js"></script>
+      <script type="text/javascript" src="/wmShop/common/bootstrap/js/bootstrap.js"></script>
+      <link rel="stylesheet" type="text/css" href="/wmShop/common/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="/wmShop/common/bootstrap/css/bootstrap-table.css">
+      <script type="text/javascript" src="/wmShop/common/bootstrap/js/bootstrap-table.js"></script>
+  <title>Bootstrap Table</title>
+<script type='text/javascript'>
+var $table = $('#table');
+$(function () {
+	    $('#eventsTable').on('all.bs.table', function (e, name, args) {
+	        console.log('Event:', name, ', data:', args);
+	    })
+	    .on('click-row.bs.table', function (e, row, $element) {
+	        console.log('Event: click-row.bs.table');
+	    })
+	    .on('dbl-click-row.bs.table', function (e, row, $element) {
+	        console.log('Event: dbl-click-row.bs.table');
+	    })
+	    .on('sort.bs.table', function (e, name, order) {
+	        console.log('Event: sort.bs.table');
+	    })
+	    .on('check.bs.table', function (e, row) {
+	        console.log('Event: check.bs.table');
+	    })
+	    .on('uncheck.bs.table', function (e, row) {
+	        console.log('Event: uncheck.bs.table');
+	    })
+	    .on('check-all.bs.table', function (e) {
+	        console.log('Event: check-all.bs.table');
+	    })
+	    .on('uncheck-all.bs.table', function (e) {
+	        console.log('Event: uncheck-all.bs.table');
+	    })
+	    .on('load-success.bs.table', function (e, data) {
+	    	var frame=window.parent.document.getElementById('frame_1');
+	    	$(frame).height(document.documentElement.offsetHeight);
+	        console.log('Event: load-success.bs.table');
+	    })
+	    .on('load-error.bs.table', function (e, status) {
+	        console.log('Event: load-error.bs.table');
+	    })
+	    .on('column-switch.bs.table', function (e, field, checked) {
+	        console.log('Event: column-switch.bs.table');
+	    })
+	    .on('page-change.bs.table', function (e, number, size) {
+	        console.log('Event: page-change.bs.table');
+	    })
+	    .on('search.bs.table', function (e, text) {
+	        console.log('Event: search.bs.table');
+	    });
+});
+</script>
+
+  
+</head>
+
+<body>
+	<div id="toolbar" class="btn-group">
+    <button type="button" class="btn btn-default">
+        <i class="glyphicon glyphicon-plus"></i>
+    </button>
+    <button type="button" class="btn btn-default">
+        <i class="glyphicon glyphicon-heart"></i>
+    </button>
+    <button type="button" class="btn btn-default">
+        <i class="glyphicon glyphicon-trash"></i>
+    </button>
+</div>
+  <table data-toggle="table"
+	data-url="http://mikepenz.com/jsfiddle/"
+       data-side-pagination="server"
+       data-pagination="true"
+	   data-striped="true"
+       data-method="get"
+	   data-click-to-select="true"
+	   data-toolbar="#toolbar"
+	   data-toolbar-align="right"
+	   data-pagination-next-text="下一页"
+	id="eventsTable"
+>
+    <thead>
+    <tr>
+        <th data-field="state" data-checkbox="true"></th>
+        <th data-field="id" data-align="right" data-sortable="true">Item ID</th>
+        <th data-field="name" data-align="center" data-sortable="true">Item Name</th>
+        <th data-field="price" data-sortable="true">Item Price</th>
+    </tr>
+    </thead>
+</table>
+</body>
+</html>
+

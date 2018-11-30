@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zbiti.iepe.framework.dao.HelpMenuDao">
+	<select id="getAllMenus" resultType="com.zbiti.iepe.framework.model.BaseHelpMenu"
+		resultMap="BaseHelpMenu.BaseMenuResultMap">
+		select * from jh_help order by
+		menu_sort_cd,menu_id
+	</select>
+
+	<select id="selectMenuById" parameterType="string"
+		resultType="com.zbiti.iepe.framework.model.BaseHelpMenu" resultMap="BaseHelpMenu.BaseMenuResultMap">
+		select
+		* from jh_help where menu_id = ${menuId} order by
+		menu_sort_cd,menu_id
+	</select>
+
+	<insert id="addMenu" useGeneratedKeys="true" keyProperty="id" parameterType="com.zbiti.iepe.framework.model.BaseHelpMenu">
+		insert into jh_help
+		(
+		NAME,
+		TITLE,
+		PARENT_MENU_ID,
+		URI,
+		MENU_TYPE_CD,
+		MENU_SORT_CD,
+		MENU_DESC,
+		ICON,
+		createTime,
+		delflag,
+		level,
+		count
+		)
+		values
+		(
+		#{name,jdbcType=VARCHAR},
+		#{title,jdbcType=VARCHAR},
+		#{parentMenuId,jdbcType=VARCHAR},
+		#{uri,jdbcType=VARCHAR},
+		#{menuTypeCd,jdbcType=VARCHAR},
+		#{menuSortCd},
+		#{desc,jdbcType=VARCHAR},
+		#{icon,jdbcType=VARCHAR},
+		#{createTime},
+		0,
+		#{level},
+		#{count}
+		)
+	</insert>
+
+	<update id="editMenu" parameterType="com.zbiti.iepe.framework.model.BaseHelpMenu">
+		update jh_help 
+		<trim prefix="" prefixOverrides=",">
+			<set>
+				<if test="name != null ">name=#{name},</if>
+				<if test="title != null ">title=#{title},</if>
+				<if test="parentMenuId != null">parent_menu_id = #{parentMenuId},</if>
+				<if test="uri != null">uri = #{uri},</if>
+				<if test="menuTypeCd != null">menu_type_cd = #{menuTypeCd},</if>
+				<if test="menuSortCd != null">menu_sort_cd = #{menuSortCd},</if>
+				<if test="icon != null">icon = #{icon},</if>
+				<if test="desc != null">menu_desc = #{desc},</if>
+				<if test="count != null">count = #{count},</if>
+				<if test="level != null">level = #{level}</if>
+			</set>
+			where menu_id=#{menuId}
+		</trim>
+	</update>
+
+	<select id="selectMenuByParentId" parameterType="string"
+		resultType="com.zbiti.iepe.framework.model.BaseHelpMenu" resultMap="BaseHelpMenu.BaseMenuResultMap">
+		select
+		* from jh_help where parent_menu_id = ${menuId} order by
+		menu_sort_cd,menu_id
+	</select>
+    <!-- 根据角色选择 -->
+	<select id="selectMenuByParentIdbyroleId" parameterType="map"
+		resultType="com.zbiti.iepe.framework.model.BaseHelpMenu" resultMap="BaseHelpMenu.BaseMenuResultMap">
+		select
+		bm.* from base_role_2_menu br2m join jh_help bm on bm.menu_id =
+		br2m.menu_id where parent_menu_id = ${menuId} and role_Id = ${roleId}  order by
+		menu_sort_cd,bm.menu_id
+	</select>
+	
+	<!-- <delete id="deleteRoleMenu" parameterType="string">
+		delete from
+		base_role_2_menu where menu_id = ${menuId}
+	</delete> -->
+
+	<delete id="deleteMenu" parameterType="string">
+		delete from jh_help
+		where menu_id = ${menuId}
+	</delete>
+    <!-- 根据角色获取 -->
+	<select id="getMenusByRoleId" parameterType="string"
+		resultType="com.zbiti.iepe.framework.model.BaseHelpMenu" resultMap="BaseHelpMenu.BaseMenuResultMap">
+		select
+		bm.* from base_role_2_menu br2m join jh_help bm on bm.menu_id =
+		br2m.menu_id where role_Id = ${roleId} order by
+		menu_sort_cd,bm.menu_id
+	</select>
+
+<!-- 	<delete id="deleteRoleMenuByRole" parameterType="string">
+		delete from
+		base_role_2_menu where role_id = ${roleId}
+	</delete> -->
+
+	<insert id="saveRoleMenus" parameterType="java.util.List">
+		insert into base_role_2_menu (role_id,menu_id)
+		<foreach collection="list" item="item" index="index"
+			separator="union all">
+			select #{item.roleId,jdbcType=VARCHAR},
+			#{item.menuId,jdbcType=VARCHAR} from dual
+		</foreach>
+	</insert>
+
+	<select id="selectMenuType" resultType="map">
+		select * from
+		base_menu_type
+	</select>
+</mapper>

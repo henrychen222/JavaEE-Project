@@ -1,0 +1,127 @@
+.top-nav {
+  background: #f7f7f7;
+  height: 38px;
+  line-height: 38px;
+}
+.top-nav .top-nav-wrap {
+  padding: 0;
+  height: 38px;
+  line-height: 38px;
+}
+.top-nav .top-nav-wrap .line {
+  top: 15px!important;
+}
+.header {
+  width: 1240px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+.header h2.slogan {
+  color: #123457;
+  font-size: 24px;
+  font-weight: normal;
+  padding: 15px 0 18px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.center {
+  width: 1240px;
+  margin: 22px auto;
+  clear: both;
+}
+.center ul.form-cont {
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 70px;
+  margin-bottom: 10px;
+}
+.center ul.form-cont li {
+  clear: both;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+.center ul.form-cont li .left-tit {
+  float: left;
+  text-align: left;
+  width: 110px;
+  color: #292929;
+  font-size: 14px;
+  line-height: 35px;
+}
+.center ul.form-cont li .center-cont {
+  float: left;
+}
+.center ul.form-cont li .center-cont .city-drop {
+  position: relative;
+  left: -164px;
+  top: 0;
+}
+.center ul.form-cont li .right-tip {
+  float: left;
+}
+.center .tip-txt {
+  color: #a0a0a0;
+  font-size: 12px;
+  line-height: 35px;
+  margin-left: 15px;
+  font-family: "SimSun";
+}
+.center .get-code {
+  display: block;
+  background: #f2cd80;
+  color: #fff;
+  font-size: 15px;
+  line-height: 37px;
+  text-align: center;
+  border-radius: 8px;
+  padding: 0 20px;
+  height: 37px;
+  margin-left: 20px;
+}
+.center .serv-txt {
+  width: 1000px;
+  max-height: 262px;
+  overflow: auto;
+  color: #292929;
+  font-size: 13px;
+  line-height: 26px;
+  border: 1px solid #e5e5e5;
+  padding: 10px;
+  background: #f8f8f8;
+}
+.center .btn-regist {
+  display: block;
+  width: 250px;
+  background: #123457;
+  color: #fff;
+  font-size: 16px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 8px;
+  padding: 0 85px;
+  height: 50px;
+  border: 0;
+  margin: 30px auto 80px;
+}
+.center .btn-regist:hover {
+  background: #1a4169;
+}
+.center .pwd-wrap {
+  position: relative;
+}
+.center .pwd-wrap span.icon-pwd {
+  position: absolute;
+  display: block;
+  width: 15px;
+  height: 14px;
+  top: 13px;
+  right: 20px;
+  background: url(../images/icon-pwd.png) no-repeat;
+}
+.center .dropdown {
+  margin-right: 20px;
+}
+.center .city-drop .combo-box {
+  left: 434px;
+}
+.center .btn-wrap {
+  text-align: center;
+}

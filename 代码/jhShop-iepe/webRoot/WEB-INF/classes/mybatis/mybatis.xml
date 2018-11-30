@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <settings>
+    <!-- 返回的map中值不存在，键存在 -->
+    	<setting name="callSettersOnNulls" value="true" />
+    </settings>
+    
+	<plugins>  
+	<!-- 
+				分页设置
+	dialect：数据库方言，支持oracle/mysql
+	pageSqlId ：需要拦截进行分页的sqlID，正则匹配
+	 -->
+    <plugin interceptor="com.zbiti.core.util.PagePlugin">  
+        <property name="dialect" value="mysql"/>  
+        <property name="pageSqlId" value=".*listPage"/>  
+    </plugin>
+    <plugin interceptor="com.zbiti.core.util.PrintSqlPlugin">  
+    </plugin>
+</plugins>
+ 
+</configuration>

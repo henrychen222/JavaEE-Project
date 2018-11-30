@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BaseOrganization">
+	<resultMap type="com.zbiti.iepe.framework.model.BaseOrganization" id="BaseOrganizationResultMap">
+		<id property="orgId" column="org_id"/>
+		<result property="parentId" column="parent_id"/>
+		<result property="orgTypeId" column="org_type_id"/>
+		<result property="orgTypeName" column="org_type_name"/>
+		<result property="orgName" column="org_name"/>
+		<result property="orgCode" column="org_code"/>
+		<result property="orgLevelCd" column="org_level_cd"/>
+		<result property="orgLevelName" column="org_level_name"/>
+		<result property="showOrderNo" column="show_order_no"/>
+		<result property="isDelete" column="is_delete"/>
+		<result property="orgNameShort" column="org_name_short"/>
+		<result property="orgNameJp" column="org_name_jp"/>
+		<result property="areaId" column="area_id"/>
+	</resultMap>
+</mapper>

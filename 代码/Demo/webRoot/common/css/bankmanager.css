@@ -1,0 +1,440 @@
+
+div.banknotetitle
+ {
+  color: #0088cb;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 30px;
+  text-align: left;
+}
+
+
+.center .right-cont .order-cont .tab-cont .bankmain .addbanktitle .title{
+	color: #0088cb;
+	font-size: 14px;
+	font-weight: bold;
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	width: 300px;
+	float: left;
+	display:block;
+	margin-right: 20px;
+}
+
+.center .right-cont .order-cont .tab-cont .bankmain .addbankbtn .bank-desc{
+	width: 300px;
+	float:left;
+	margin-right: 20px;
+}
+
+
+.center .right-cont .order-cont .tab-cont .bankmain .addbankbtn .bank-desc .bankcard{
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 20px;
+	text-align: left;
+	color: #626262;
+	height: 205px;
+	width: 300px;
+	border:1px solid #ccc;
+	border-radius:10px;
+	-webkit-box-shadow:0 0 10px rgba(204, 204, 204, 0.7);  
+	-moz-box-shadow:0 0 10px rgba(204, 204, 204, 0.7);  
+	box-shadow:0 0 10px rgba(206, 204, 204, 0.7);  
+}
+
+/* .center .right-cont .order-cont .tab-cont .bankmain .addbankbtn .bank-desc .bankcard .bankmiddle{
+	color:#626262;
+	height: 120px;
+	
+} */
+
+.center .right-cont .order-cont .tab-cont .bankmain .addbankbtn .bank-desc .bankcard .bankhead
+ {
+	position: relative;
+   	font-size: 15px;
+	font-weight: bold;
+	height: 25px;
+	width: 100%;
+	padding: 10px 0px 5px 0px;
+}
+
+.center .right-cont .order-cont .tab-cont .bankmain .addbankbtn .bank-desc .bankcard .bankhead .bankbuspic
+ {
+ 	width:20px;
+ 	height:20px;
+	vertical-align: text-bottom;
+	float: left;
+	margin-left: 15px;
+}
+
+.center .right-cont .order-cont .tab-cont .bankmain .addbankbtn .bank-desc .bankcard .bankhead .bankbusname
+ {
+	float: left;
+	margin-left: 15px;
+}
+
+.center .right-cont .order-cont .tab-cont .bankmain .addbankbtn .bank-desc .bankcard .bankhead .bankbuschildname
+ {
+	float: right;
+	margin-right: 15px;
+}
+
+
+.center .right-cont .order-cont .tab-cont .bankmain .addbankbtn .bank-desc .bankcard .bankmiddle {
+	width: 290px;
+	height: 120px;
+	background-color: #ced2d5;
+	padding-top: 5px;
+	padding-left: 10px;
+}
+
+.center .right-cont .order-cont .tab-cont .bankmain .addbankbtn .bank-desc .bankcard .bankmiddle span {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	font-weight:200;
+	font-weight: normal;
+}
+
+
+.center .right-cont .order-cont .tab-cont .bankmain .addbankbtn .bank-desc .bankcard .bankmiddle .bankmiddle-title{
+	float:left;
+}
+
+.center .right-cont .order-cont .tab-cont .bankmain .addbankbtn .bank-desc .bankcard .bankmiddle .bankmiddle-value{
+	float:left;
+	width: 210px; 
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.center .right-cont .order-cont .tab-cont .bankmain .addbankbtn .bank-desc .bankcard .bankmiddle .bankmiddle-value2{
+	float:left;
+	width: 70px;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.center .right-cont .order-cont .tab-cont .bankmain .addbankbtn .bank-desc .bankcard .bankfoot{
+	height: 40px;
+	width: 100%;
+	line-height: 40px;
+}
+
+.center .right-cont .order-cont .tab-cont .bankmain .addbankbtn .bank-desc .bankcard .bankfoot span{
+	width: 60px;
+	display: block;
+	float: right;
+	margin-top: 10px;
+}
+
+.center .right-cont .order-cont .tab-cont .bankmain .addbankbtn .bank-desc .bankcard .bankfoot .editbankpic{
+	width:20px;
+	height:20px;
+	float: left;
+	vertical-align: text-bottom;
+	display: block;
+}
+
+.center .right-cont .order-cont .tab-cont .bankmain .addbankbtn .bank-desc .bankcard .bankfoot .editbankbusword{
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 20px;
+	color:#0088cb;
+	float: left;
+}
+
+
+
+.center .right-cont .order-cont .tab-cont .bankmain .addbankbtn .bank-desc .btn{
+	height: 201px;
+	width: 296px;
+	border:2px dashed  #0088cb;
+	border-radius:10px; 
+	background-color: rgba(204, 204, 204, 0.29);
+}
+
+
+.center .right-cont .order-cont .tab-cont .bankmain .addbankbtn .bank-desc .btn img{
+	height: 50px;
+	width: 50px;
+	margin: 70px auto 0px auto;
+	display: block;
+	z-index: 999;
+}
+
+.center .right-cont .order-cont .tab-cont .bankmain .addbankbtn .bank-desc .btn p{
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 20px;
+	text-align: center;
+	height: 200px;
+	width: 200px;
+	color: #0088cb;
+	margin: 10px auto;
+	z-index: 999;
+}
+
+
+.center .right-cont .order-cont .tab-cont .addbankdilog{
+	width: 500px;
+	height: 600px;
+	display: block;
+}
+
+.center .right-cont .order-cont .tab-cont  .addbankdilog .addbankdilogtitlebg
+ {
+	position: relative;
+	height: 40px;
+	background-color:#000000;
+} 
+
+
+.center .right-cont .order-cont .tab-cont  .addbankdilog .addbankdilogtitlebg p
+ {
+	 float:left;
+	color: #ffffff;
+	text-align: left;
+	height: 40px;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 40px;
+	text-align: left;
+	padding-left:10px;
+	background-color:#000000;
+}
+
+
+
+div.banknotedetail
+ {
+  position: relative;
+  color: #626262;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 20px;
+  text-align: left;
+  left:10px;
+}
+
+div.bankmanagerline
+{
+	margin:0;
+	padding:0;
+	width:100%;
+	height:1px;
+	background-color:#e4e4e4;
+	overflow:hidden;
+}
+
+div.addbanktitle
+{
+	position: relative;
+	color: #0088cb;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 20px;
+	text-align: left;
+	height: 30px;
+	top:25px;
+}
+
+
+
+div.addbankbtn
+ {
+	position: relative;
+	height: 500px;
+	float: top;
+	top:50px;
+	left:5px;
+}
+
+
+
+
+
+
+div.addbankdilogbj
+{
+	position: absolute;
+	height: 500px;
+	width: 600ox;
+	left:0px;
+	top:0px;
+	visibility:hidden;
+	background-color:rgb(52,52,52);
+	opacity:0.2;
+}
+
+div.addbankdilog 
+{
+	text-align: center;
+	color: #626262;
+	background-color:#ffffff;
+}
+  
+  
+
+
+td.addbankdilogtitle
+{
+	position: relative;
+	top:25px;
+	left:80px;
+	text-align: left;
+	height:30px;
+	width:20px;
+}
+
+ td.addbankdilogdetail  input.input-txt
+ {
+	position: relative;
+	text-align: left;
+	left:0px;
+	height:30px;
+	width:210px;
+	top:25px;
+	padding-top:5px;
+	padding-bottom:5px;
+	margin-top:5px;
+	margin-bottom:5px;
+ }
+  td.addbankdilogdetail  select
+ {
+	position: relative;
+	text-align: left;
+	left:0px;
+	height:45px;
+	width:242px;
+	top:25px;
+	padding-top:5px;
+	padding-bottom:5px;
+	margin-top:5px;
+	margin-bottom:5px;
+ }
+ 
+td.addbankdilogdetailsmall  input.input-txt
+ {
+	position: relative;
+	text-align: left;
+	float:left;
+	left:50px;
+	height:30px;
+	width:100px;
+	top:25px;
+	padding-top:5px;
+	padding-bottom:5px;
+	margin-top:5px;
+	margin-bottom:5px;
+ }
+ 
+td.addbankdilogdetailsmall  input.getsmscodebtn
+ {
+	position: relative;
+	float:left;
+	left:80px;
+	height:40px;
+	width:80px;
+	top:30px;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 20px;
+	color: #ffffff;
+	background-color:#0088cb;
+	border-radius:5px; 
+ }
+ td.addbankdilogdetailsmall  img
+ {
+	position: relative;
+	float:left;
+	left:80px;
+	height:40px;
+	width:80px;
+	top:30px;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 20px;
+	color: #ffffff;
+	background-color:#0088cb;
+	border-radius:5px; 
+ }
+ td.addbankdilogdetailsmall  input.imgcode
+ {
+	position: relative;
+	float:left;
+	left:80px;
+	height:40px;
+	width:80px;
+	top:30px;
+ }
+  
+ td.addbankdilogdetail  select.easyui-combobox
+ {
+	position: relative;
+	text-align: left;
+	left:0px;
+	height:40px;
+	width:240px;
+	top:25px;
+	margin-top:5px;
+	margin-bottom:5px;
+ }
+ 
+td.banksave
+ {
+	position: relative;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 20px;
+	top:50px;
+	left:180px;
+ } 
+ 
+  
+td.banksave input.banksavebtn
+{
+ 	color: #ffffff;
+	position: relative;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 20px;
+	width:150px;
+	height:50px;
+	background-color:#0088cb;
+	border-radius:5px; 
+} 
+ 
+  a.bankclosedilogebtn
+ {
+	 float:left;
+	color: #ffffff;
+	position: relative;
+	text-align: left;
+	height: 30px;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 20px;
+	left:380px;
+	top:10px;
+	background-color:#000000;
+}
+/*   div.addbankdilogtitlebg
+ {
+	position: relative;
+	height: 50px;
+	background-color:#000000;
+} */
+
+
+  

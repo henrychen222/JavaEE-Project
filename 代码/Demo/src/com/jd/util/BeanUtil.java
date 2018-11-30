@@ -1,0 +1,36 @@
+package com.jd.util;
+
+import java.util.List;
+
+import com.github.pagehelper.Page;
+
+/**
+ * 处理分页数据
+ * @author zhuyufu
+ *2016年3月23日下午2:56:11
+ */
+
+@SuppressWarnings("all")
+public class BeanUtil {
+	public static <T> PagedResult<T> toPagedResult(List<T> datas) {
+        PagedResult<T> result = new PagedResult<T>();
+        if (datas instanceof Page) {
+            Page page = (Page) datas;
+ 
+            result.setPageNo(page.getPageNum());
+            result.setPageSize(page.getPageSize());
+            result.setRows(page.getResult());
+            result.setTotal(page.getTotal());
+            result.setPages(page.getPages());
+          
+        }
+        else {
+            result.setPageNo(1);
+            result.setPageSize(datas.size());
+            result.setRows(datas);
+            result.setTotal(datas.size());
+        }
+        return result;
+    }
+
+}

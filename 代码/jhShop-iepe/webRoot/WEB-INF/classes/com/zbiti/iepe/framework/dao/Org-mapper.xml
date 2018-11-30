@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zbiti.iepe.framework.dao.OrgDao">
+
+	<select id="getAllOrgs" resultMap="BaseOrganization.BaseOrganizationResultMap"
+		resultType="com.zbiti.iepe.framework.model.BaseOrganization">
+		select * from BASE_ORGANIZATION t where t.is_delete=0 order
+		by t.org_code
+	</select>
+
+	<select id="getOrgById" resultMap="BaseOrganization.BaseOrganizationResultMap"
+		resultType="com.zbiti.iepe.framework.model.BaseOrganization">
+		select t.*,bot.org_type_name from BASE_ORGANIZATION t left
+		outer join BASE_ORGANIZATION_TYPE bot on bot.org_type_id =
+		t.org_type_id where t.org_id = ${orgId} and t.is_delete=0
+	</select>
+
+	<select id="getAuthorOrg" parameterType="map"
+		resultType="com.zbiti.iepe.framework.model.BaseOrganization"
+		resultMap="BaseOrganization.BaseOrganizationResultMap">
+		select t.*, bot.org_type_name
+		from BASE_ORGANIZATION t
+		left outer join
+		BASE_ORGANIZATION_TYPE bot
+		on bot.org_type_id = t.org_type_id
+		where
+		t.parent_id = #{parentId}
+		<!-- 工单填写调用 -->
+		<if test="areaId != 2 and manageFlag == 0">
+			and t.area_id in (#{areaId},2)
+		</if>
+		<!-- 后台管理调用 -->
+		<if test="areaId != 2 and manageFlag == 1">
+			and t.area_id = #{areaId}
+		</if>
+		and t.org_level_cd = #{orgLevelCd}
+		and t.is_delete = 0
+	</select>
+
+	<select id="getOrgByParentIdlistPage" resultMap="BaseOrganization.BaseOrganizationResultMap"
+		resultType="com.zbiti.iepe.framework.model.BaseOrganization">
+		select t.*,
+		bot.org_type_name,
+		case t.org_level_cd
+		when '1'
+		then '一级机构'
+		when '2'
+		then '二级机构'
+		when '3'
+		then '三级机构'
+		when '4'
+		then '四级机构'
+		when '5'
+		then
+		'五级机构'
+		when '6'
+		then '六级机构'
+		when '7'
+		then '七级机构'
+		else '' end org_level_name
+		from BASE_ORGANIZATION t
+		left outer join BASE_ORGANIZATION_TYPE bot
+		on
+		bot.org_type_id = t.org_type_id
+		<trim prefix="where" prefixOverrides="and |or">
+			<if test="orgId != null and orgId != ''">
+				t.parent_id = ${orgId}
+			</if>
+			<if test="orgId == null or orgId == ''">
+				t.parent_id is null
+			</if>
+			and t.is_delete=0
+		</trim>
+		order by t.org_code
+	</select>
+	<select id="getOrgByParentIdTwolistPage" resultMap="BaseOrganization.BaseOrganizationResultMap"
+		resultType="com.zbiti.iepe.framework.model.BaseOrganization">
+		SELECT t.org_id, t.org_name, t.org_code, bot.org_type_name
+		FROM
+		base_organization t
+		LEFT OUTER JOIN base_organization_type bot
+		ON
+		bot.org_type_id = t.org_type_id
+		<trim prefix="where" prefixOverrides="and">
+			<if test="map.orgId != null and map.orgId != ''">
+				(t.org_id = ${map.orgId} OR t.parent_id = ${map.orgId})
+			</if>
+			<if test="map.orgName != null and map.orgName != ''">
+				AND t.org_name LIKE '%${map.orgName}%'
+			</if>
+			<if test="map.orgIds != null">
+				AND t.org_id IN
+				<foreach collection="map.orgIds" item="oid" open="("
+					separator="," close=")">
+					#{oid,jdbcType=VARCHAR}
+				</foreach>
+			</if>
+			AND t.is_delete=0
+		</trim>
+		ORDER BY t.org_code
+	</select>
+
+	<!-- <insert id="saveOrg" parameterType="com.zbiti.iepe.framework.model.BaseOrganization" 
+		> MERGE INTO BASE_ORGANIZATION p USING (select #{orgId, jdbcType = VARCHAR} 
+		org_id from dual) np ON (p.org_id = np.org_id) WHEN MATCHED THEN UPDATE <set> 
+		<if test="orgName != null "> p.org_name = #{orgName, jdbcType = VARCHAR}, 
+		</if> <if test="orgCode != null"> p.org_code = #{orgCode, jdbcType = VARCHAR}, 
+		</if> <if test="orgTypeId != null "> p.org_type_id = #{orgTypeId, jdbcType 
+		= VARCHAR}, </if> <if test="parentId != null and parentId != ''"> p.parent_id 
+		= #{parentId, jdbcType = VARCHAR}, p.show_order_no = (select max(show_order_no)+1 
+		from BASE_ORGANIZATION m where m.parent_id = #{parentId, jdbcType = VARCHAR}), 
+		p.org_level_cd = (select max(org_level_cd)+1 from BASE_ORGANIZATION m where 
+		m.org_id = #{parentId, jdbcType = VARCHAR}), </if> <if test="isDelete != 
+		null"> p.is_delete = #{isDelete, jdbcType = VARCHAR} </if> </set> WHERE p.org_id 
+		= #{orgId, jdbcType = VARCHAR} WHEN NOT MATCHED THEN INSERT VALUES (seq_org.nextval, 
+		#{parentId, jdbcType = VARCHAR}, #{orgTypeId, jdbcType = VARCHAR}, #{orgName, 
+		jdbcType = VARCHAR}, #{orgCode, jdbcType = VARCHAR}, <if test="parentId != 
+		null and parentId != ''"> (select max(org_level_cd)+1 from BASE_ORGANIZATION 
+		m where m.org_id = #{parentId, jdbcType = VARCHAR}), (select max(show_order_no)+1 
+		from BASE_ORGANIZATION m where m.parent_id = #{parentId, jdbcType = VARCHAR}), 
+		</if> <if test="parentId == null or parentId == ''"> 1, (select max(show_order_no)+1 
+		from BASE_ORGANIZATION m where m.parent_id is null), </if> 0) </insert> -->
+
+	<insert id="saveOrg" useGeneratedKeys="true" keyProperty="org_id" parameterType="com.zbiti.iepe.framework.model.BaseOrganization">
+		INSERT INTO BASE_ORGANIZATION
+		(parent_id,org_type_id,org_name,org_code,org_level_cd,show_order_no,is_delete)
+		VALUES
+		(#{parentId, jdbcType = VARCHAR},
+		#{orgTypeId, jdbcType = VARCHAR},
+		#{orgName, jdbcType = VARCHAR},
+		#{orgCode, jdbcType = VARCHAR},
+		<if test="parentId != null and parentId != ''">
+			(select max(org_level_cd)+1 from BASE_ORGANIZATION m where
+			m.org_id =
+			#{parentId, jdbcType = VARCHAR}),
+			(select
+			max(show_order_no)+1 from BASE_ORGANIZATION m where m.parent_id =
+			#{parentId, jdbcType = VARCHAR}),
+		</if>
+		<if test="parentId == null or parentId == ''">
+			1,
+			(select max(show_order_no)+1 from BASE_ORGANIZATION m
+			where m.parent_id is
+			null),
+		</if>
+		0)
+	</insert>
+
+	<update id="updateOrg" parameterType="com.zbiti.iepe.framework.model.BaseOrganization">
+		update BASE_ORGANIZATION p
+		<set>
+			<if test="orgName != null ">
+				p.org_name = #{orgName, jdbcType = VARCHAR},
+			</if>
+			<if test="orgCode != null">
+				p.org_code = #{orgCode, jdbcType = VARCHAR},
+			</if>
+			<if test="orgTypeId != null ">
+				p.org_type_id = #{orgTypeId, jdbcType = VARCHAR},
+			</if>
+			<if test="parentId != null and parentId != ''">
+				p.parent_id = #{parentId, jdbcType = VARCHAR},
+				p.show_order_no = (select show_order_no from (select
+				max(show_order_no)+1 show_order_no from BASE_ORGANIZATION m where
+				m.parent_id = #{parentId, jdbcType = VARCHAR})t),
+				p.org_level_cd =
+				(select org_level_cd from (select max(org_level_cd)+1 org_level_cd
+				from BASE_ORGANIZATION m where
+				m.org_id = #{parentId, jdbcType =
+				VARCHAR})t),
+			</if>
+			<if test="isDelete != null">
+				p.is_delete = #{isDelete, jdbcType = VARCHAR}
+			</if>
+
+		</set>
+		WHERE p.org_id = #{orgId, jdbcType = VARCHAR}
+	</update>
+
+	<select id="getOrgByUser" parameterType="int"
+		resultMap="BaseOrganization.BaseOrganizationResultMap" resultType="com.zbiti.iepe.framework.model.BaseOrganization">
+		select t.*,bot.org_type_name from BASE_ORGANIZATION t
+		join
+		base_user_2_organization u2o on u2o.organizational_id = t.org_id
+		left
+		outer join BASE_ORGANIZATION_TYPE bot on bot.org_type_id =
+		t.org_type_id
+		where u2o.user_id = '${userId}' and t.is_delete=0
+	</select>
+
+	<select id="getOrgType" resultType="map">
+		select * from
+		base_organization_type order by org_type_id
+	</select>
+
+	<select id="getOrgByParentId" resultMap="BaseOrganization.BaseOrganizationResultMap"
+		resultType="com.zbiti.iepe.framework.model.BaseOrganization">
+		select t.*,
+		bot.org_type_name,
+		case t.org_level_cd
+		when '1'
+		then '一级机构'
+		when '2'
+		then '二级机构'
+		when '3'
+		then '三级机构'
+		when '4'
+		then '四级机构'
+		when '5'
+		then
+		'五级机构'
+		when '6'
+		then '六级机构'
+		when '7'
+		then '七级机构'
+		else '' end org_level_name
+		from BASE_ORGANIZATION t
+		left outer join BASE_ORGANIZATION_TYPE bot
+		on
+		bot.org_type_id = t.org_type_id
+		<trim prefix="where" prefixOverrides="and |or">
+			<if test="orgId != null and orgId != ''">
+				t.parent_id = ${orgId}
+			</if>
+			<if test="orgId == null or orgId == ''">
+				t.parent_id is null
+			</if>
+			and t.is_delete=0
+		</trim>
+		order by t.org_code
+	</select>
+
+	<!-- 根据机构编码得到该机构信息 -->
+	<select id="getOrgByOrgCode" resultMap="BaseOrganization.BaseOrganizationResultMap"
+		resultType="com.zbiti.iepe.framework.model.BaseOrganization">
+		select
+		t.*,bot.org_type_name from BASE_ORGANIZATION t
+		left
+		outer join
+		BASE_ORGANIZATION_TYPE bot
+		on
+		bot.org_type_id = t.org_type_id
+		where
+		t.org_code = #{orgCode} and t.is_delete=0
+	</select>
+
+	<select id="getCompanyByOrg" resultMap="BaseOrganization.BaseOrganizationResultMap"
+		resultType="com.zbiti.iepe.framework.model.BaseOrganization">
+		SELECT bo.org_id
+		,bo.parent_id
+		,bo.org_type_id
+		,bot.org_type_name
+		,bo.org_name
+		,bo.org_code
+		,bo.org_level_cd
+		,bo.show_order_no
+		,bo.is_delete
+		,bo.org_name_short
+		,bo.org_name_jp
+		FROM
+		base_organization bo
+		JOIN base_organization_type bot
+		ON bot.org_type_id
+		= bo.org_type_id
+		WHERE bo.org_type_id in (1,3,5,7,8)
+		and bo.org_id in
+		(
+		select org_id from
+		(
+		select a.* from base_organization a
+		where
+		a.ORG_ID='${orgId}'
+		union all
+		select b.* from base_organization a
+		left
+		join base_organization b on a.PARENT_ID=b.ORG_ID
+		where
+		a.ORG_ID='${orgId}'
+		union all
+		select c.* from base_organization a
+		left
+		join base_organization b on a.PARENT_ID=b.ORG_ID
+		left join
+		base_organization c on b.PARENT_ID=c.ORG_ID
+		where a.ORG_ID='${orgId}'
+		union all
+		select d.* from base_organization a
+		left join
+		base_organization b on a.PARENT_ID=b.ORG_ID
+		left join base_organization
+		c on b.PARENT_ID=c.ORG_ID
+		left join base_organization d on
+		c.PARENT_ID=d.ORG_ID
+		where a.ORG_ID='${orgId}'
+		union all
+		select e.* from
+		base_organization a
+		left join base_organization b on
+		a.PARENT_ID=b.ORG_ID
+		left join base_organization c on
+		b.PARENT_ID=c.ORG_ID
+		left join base_organization d on
+		c.PARENT_ID=d.ORG_ID
+		left join base_organization e on
+		c.PARENT_ID=e.ORG_ID
+		where a.ORG_ID='${orgId}'
+		) t
+		)
+		limit 1,2
+	</select>
+
+	<!-- 查询userid对于的地区编码 -->
+	<select id="getUserLocationCode"
+		resultMap="BaseOrganizationLocationCode.BaseOrganizationResultMap"
+		resultType="com.zbiti.iepe.framework.model.BaseOrganizationLocationCode">
+		select t.area_id from base_organization t left join
+		base_user_2_organization t1 on t.org_id = t1.organizational_id where
+		t1.user_id = #{userId}
+	</select>
+	<!-- 查询userid的角色权限 -->
+	<select id="getUserRoleCode" resultMap="BaseUserRoleCode.BaseUserRoleCodeResultMap"
+		resultType="com.zbiti.iepe.framework.model.BaseUserRoleCode">
+		select min(role_type_cd) role_type_cd from base_role where
+		role_id in( select role_id from base_user_2_role where
+		user_id=#{roleTypeCd})
+	</select>
+
+	<!-- 用户 机构 -->
+	<select id="getOrgByParentIdU" resultMap="BaseOrganization.BaseOrganizationResultMap"
+		resultType="com.zbiti.iepe.framework.model.BaseOrganization">
+		select t.*,
+		bot.org_type_name,
+		case t.org_level_cd
+		when '1'
+		then '一级机构'
+		when '2'
+		then '二级机构'
+		when '3'
+		then '三级机构'
+		when '4'
+		then '四级机构'
+		when '5'
+		then
+		'五级机构'
+		when '6'
+		then '六级机构'
+		when '7'
+		then '七级机构'
+		else '' end org_level_name
+		from
+		<!-- typr字段1为组织结构，2为用户 -->
+		(select * from (select
+		org_id org_id, parent_id,
+		to_char(org_type_id)org_type_id, to_char(org_name)org_name,
+		to_char(org_code)org_code,
+		to_char(org_level_cd) org_level_cd,
+		to_char(show_order_no)show_order_no, is_delete , 1 type
+		from
+		BASE_ORGANIZATION
+		union
+		select bo.user_id ord_id, bo.organizational_id
+		as parent_id,''org_type_id, bu.user_name as org_name,
+		''org_code,
+		to_char((select org_level_cd+1 from base_organization where org_id=
+		bo.organizational_id )) org_level_cd,
+		'' show_order_no, 0 is_delete ,2
+		type from base_user_2_organization bo left join base_user bu on
+		bo.user_id=bu.user_id)
+		tmpa) t
+		left outer join BASE_ORGANIZATION_TYPE
+		bot on bot.org_type_id = t.org_type_id
+		<trim prefix="where" prefixOverrides="and |or">
+			<if test="orgId != null and orgId != ''">
+				t.parent_id = ${orgId}
+			</if>
+			<if test="orgId == null or orgId == ''">
+				t.parent_id is null
+			</if>
+			and t.is_delete=0
+		</trim>
+		order by t.org_code
+	</select>
+
+	<!-- 根据节点名称显示用户 机构 -->
+	<select id="getOrgByParentIdDim" resultMap="BaseOrganization.BaseOrganizationResultMap"
+		resultType="com.zbiti.iepe.framework.model.BaseOrganization">
+		select t.*,
+		bot.org_type_name,
+		case t.org_level_cd
+		when '1'
+		then '一级机构'
+		when '2'
+		then '二级机构'
+		when '3'
+		then '三级机构'
+		when '4'
+		then '四级机构'
+		when '5'
+		then
+		'五级机构'
+		when '6'
+		then '六级机构'
+		when '7'
+		then '七级机构'
+		else '' end org_level_name
+		from
+		<!-- typr字段1为组织结构，2为用户 -->
+		(select * from (select
+		org_id org_id, parent_id,
+		to_char(org_type_id)org_type_id, to_char(org_name)org_name,
+		to_char(org_code)org_code,
+		to_char(org_level_cd) org_level_cd,
+		to_char(show_order_no)show_order_no, is_delete , 1 type
+		from
+		BASE_ORGANIZATION
+		union
+		select bo.user_id ord_id, bo.organizational_id
+		as parent_id,''org_type_id, bu.user_name as org_name,
+		''org_code,
+		to_char((select org_level_cd+1 from base_organization where org_id=
+		bo.organizational_id )) org_level_cd,
+		'' show_order_no, 0 is_delete ,2
+		type from base_user_2_organization bo left join base_user bu on
+		bo.user_id=bu.user_id
+		<trim prefix="where" prefixOverrides="and |or">
+			<if test="userName != null and userName != ''">
+				bu.user_name like '%${userName}%'
+			</if>
+		</trim>
+		)
+		tmpa) t
+		left outer join BASE_ORGANIZATION_TYPE bot on bot.org_type_id
+		= t.org_type_id
+		<trim prefix="where" prefixOverrides="and |or">
+			<if test="orgId != null and orgId != ''">
+				t.parent_id = ${orgId}
+			</if>
+			<if test="orgId == null or orgId == ''">
+				t.parent_id is null
+			</if>
+			and t.is_delete=0
+		</trim>
+		order by t.org_code
+	</select>
+
+	<!-- 岗位 机构 -->
+	<select id="getOrgByParentIdP" resultMap="BaseOrganization.BaseOrganizationResultMap"
+		resultType="com.zbiti.iepe.framework.model.BaseOrganization">
+		select t.*,
+		bot.org_type_name,
+		case t.org_level_cd
+		when '1'
+		then '一级机构'
+		when '2'
+		then '二级机构'
+		when '3'
+		then '三级机构'
+		when '4'
+		then '四级机构'
+		when '5'
+		then
+		'五级机构'
+		when '6'
+		then '六级机构'
+		when '7'
+		then '七级机构'
+		else '' end org_level_name
+		from
+		<!-- typr字段1为组织结构，2为岗位 -->
+		(select * from (select
+		org_id org_id, parent_id,
+		to_char(org_type_id)org_type_id,
+		to_char(org_name)org_name,
+		to_char(org_code)org_code,
+		to_char(org_level_cd) org_level_cd,
+		to_char(show_order_no)show_order_no, is_delete , 1 type
+		from
+		BASE_ORGANIZATION
+		union
+		select bo.position_id ord_id, bo.org_id as
+		parent_id,''org_type_id,
+		bp.position_name as org_name,
+		''org_code,
+		to_char((select org_level_cd+1 from base_organization where org_id=
+		bo.org_id )) org_level_cd,
+		'' show_order_no, 0 is_delete ,2 type from
+		base_position_2_organization
+		bo left join base_position bp on
+		bo.position_id=bp.position_id)
+		tmpa) t
+		left outer join
+		BASE_ORGANIZATION_TYPE bot on bot.org_type_id =
+		t.org_type_id
+		<trim prefix="where" prefixOverrides="and |or">
+			<if test="orgId != null and orgId != ''">
+				t.parent_id = ${orgId}
+			</if>
+			<if test="orgId == null or orgId == ''">
+				t.parent_id is null
+			</if>
+			and t.is_delete=0
+		</trim>
+		order by t.org_code
+	</select>
+
+	<!-- 根据节点名称显示岗位 机构 -->
+	<select id="getOrgByParentIdPDim" resultMap="BaseOrganization.BaseOrganizationResultMap"
+		resultType="com.zbiti.iepe.framework.model.BaseOrganization">
+		select t.*,
+		bot.org_type_name,
+		case t.org_level_cd
+		when '1'
+		then '一级机构'
+		when '2'
+		then '二级机构'
+		when '3'
+		then '三级机构'
+		when '4'
+		then '四级机构'
+		when '5'
+		then
+		'五级机构'
+		when '6'
+		then '六级机构'
+		when '7'
+		then '七级机构'
+		else '' end org_level_name
+		from
+		<!-- typr字段1为组织结构，2为用户 -->
+		(select * from(select
+		org_id org_id, parent_id,
+		to_char(org_type_id)org_type_id,
+		to_char(org_name)org_name,
+		to_char(org_code)org_code,
+		to_char(org_level_cd) org_level_cd,
+		to_char(show_order_no)show_order_no, is_delete , 1 type
+		from
+		BASE_ORGANIZATION
+		union
+		select bo.position_id ord_id, bo.org_id as
+		parent_id,''org_type_id,
+		bp.position_name as org_name,
+		''org_code,
+		to_char((select org_level_cd+1 from base_organization where org_id=
+		bo.org_id )) org_level_cd,
+		'' show_order_no, 0 is_delete ,2 type from
+		base_position_2_organization
+		bo left join base_position bp on
+		bo.position_id=bp.position_id
+		<trim prefix="where" prefixOverrides="and |or">
+			<if test="positionName != null and positionName != ''">
+				bp.position_name like '%${positionName}%'
+			</if>
+		</trim>
+		)
+		tmpa) t
+		left outer join BASE_ORGANIZATION_TYPE bot on bot.org_type_id
+		= t.org_type_id
+		<trim prefix="where" prefixOverrides="and |or">
+			<if test="orgId != null and orgId != ''">
+				t.parent_id = ${orgId}
+			</if>
+			<if test="orgId == null or orgId == ''">
+				t.parent_id is null
+			</if>
+			and t.is_delete=0
+		</trim>
+		order by t.org_code
+	</select>
+	<select id="getChildrenOrgIdByParentIds" resultType="string">
+		select org_id from base_organization
+		where parent_id in
+		<foreach collection="orgIds" item="oid" open="(" separator=","
+			close=")">
+			#{oid,jdbcType=INTEGER}
+		</foreach>
+	</select>
+	<select id="getOrgByOrgIds" resultMap="BaseOrganization.BaseOrganizationResultMap"
+		resultType="com.zbiti.iepe.framework.model.BaseOrganization">
+		select * from base_organization
+		where org_id in
+		<foreach collection="orgIds" item="oid" open="(" separator=","
+			close=")">
+			#{oid,jdbcType=INTEGER}
+		</foreach>
+	</select>
+</mapper>

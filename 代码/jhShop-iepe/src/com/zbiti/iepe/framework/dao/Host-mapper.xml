@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace和定义的Mapper接口对应，并实现其中的方法 -->
+
+<mapper namespace="com.zbiti.iepe.framework.dao.HostDao">
+
+	<!-- 一对多查询全部信息 -->
+	
+	<select id="findOne2Many" resultType="com.zbiti.iepe.framework.model.BaseHost">
+		select * from host h inner join company c on c.id=h.id
+	</select>
+	
+	<insert id="add" parameterType="com.zbiti.iepe.framework.model.BaseCompany">
+		insert into company (hostId,createTime,name,address,range,nature) 
+		values(#{hostId},#{createTime},#{name},#{address},#{range},#{nature})
+	</insert>
+	
+</mapper>

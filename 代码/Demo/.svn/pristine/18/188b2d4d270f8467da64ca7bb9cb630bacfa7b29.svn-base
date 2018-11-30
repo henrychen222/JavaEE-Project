@@ -1,0 +1,64 @@
+.textbox {
+    background-color: #fff;
+    border: 1px solid #d4d4d4;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-indent: 1em;
+}
+
+.btn-regist {
+  display: block;
+  background: #123457;
+  color: #fff;
+  font-size: 14px;
+  line-height: 35px;
+  text-align: center;
+  border-radius: 8px;
+  padding: 0 70px;
+  height: 35px;
+  border: 0;
+  margin: 30px auto 80px;
+}
+
+
+.center .messageBoard{
+	margin: 10px auto;
+}
+
+.center  .leaveWord-title{
+	font-size: 18px;
+	font-weight: lighter;
+}
+
+.center .messageBoard-table tr{
+	height:40px;
+}
+.center .inquiry-info{
+	width: 100%;
+}
+
+.center .inquiry-info .proinfo{
+	margin:10px auto;
+}
+
+.center .inquiry-info .proinfo ul{
+	width: 90%;
+	margin:10px auto;
+}
+.center .inquiry-info .proinfo ul li{
+	height: 40px;
+	margin-top: 10px;
+}
+
+.center .inquiry-info .proinfo ul .title{
+	line-height: 40px;
+	color: #444;
+    font-size: 16px;
+    font-weight: 700;
+}

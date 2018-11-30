@@ -1,0 +1,202 @@
+.top-nav{ width: 100%; background: #f7f7f7;
+    .top-nav-wrap{ width: 1240px; margin: 0 auto; padding-top: 10px; padding-bottom: 7px; height: 38px; line-height: 38px; color: #4a4a4a; font-size: 12px;
+        .logo{ display: block; float: left; width: 75px; height: 28px; background: url(../images/logo.png) no-repeat;}
+        .welcome-wrap{ color: #808080;
+            .input-txt{ border:0;}
+            .user-name{ color: #292929; margin-left: 5px;}
+        }
+        ul.right-menu{ float: right; color: #292929;
+        	li{ float:left; padding: 0 12px; position: relative; z-index: 1;
+        		.line{ position: absolute; right: 0; top: 15px; z-index: 2; background: #dfdfdf; height: 10px; width: 1px;}
+        		.cart-num{display: block; position: absolute; top: 4px; right: 3px; width: 13px; height: 13px; line-height: 13px; text-align: center; background: url(../images/circle.png) no-repeat; color: #fff;}
+        	}
+        }
+    } 
+}
+
+.center{ width:1240px; margin: 50px auto; clear: both; overflow: hidden;
+    .left-menu{ width: 200px; float: left;
+        ul{
+            li{
+                a{ display: block; height: 40px; background: #fff; width: 150px; padding:0 25px; border:1px solid #e3e3e3; border-top: 0;
+                    span.txt{ color: #a7a7a7; font-size: 15px; display: block; float: left; line-height: 40px;}
+                    span.icon-default{ display: block; float: left; background: url(../images/icon-left-menu.png) no-repeat;}
+                    span.icon-order{height: 16px; width: 17px; margin:13px 20px 0 0; background-position: -2px -19px;}
+                    span.icon-product{ width: 16px; height: 17px; margin:13px 20px 0 0; background-position: -3px -41px;}
+                    span.icon-project{width: 17px; height: 17px; margin:13px 20px 0 0; background-position: -2px -79px;}
+                    span.icon-case{width: 16px; height: 17px; margin:13px 20px 0 0; background-position: -2px -119px;}
+                    span.icon-trust{width: 18px; height: 18px; margin:13px 20px 0 0; background-position: -1px -163px;}
+                    span.icon-engineer{width: 20px; height: 13px; margin:13px 20px 0 0; background-position: 0 -204px;}
+                    span.icon-finance{width: 15px; height: 18px; margin:13px 20px 0 0; background-position: -3px -240px;}
+                    span.icon-supplier{width: 18px; height: 14px; margin:13px 20px 0 0; background-position: -1px -281px;}
+                    span.icon-infor{width: 17px; height: 20px; margin:13px 20px 0 0; background-position: -2px -320px;}
+                }
+                a.fir{ border-radius: 6px 6px 0 0; border-top: 1px solid #e3e3e3;}
+                a.las{ border-radius: 0 0 6px 6px;}
+                a:hover{ background:#edac29; border:1px solid #edac29; border-top: 0;
+                    span.txt{ color: #fff;}
+                    span.icon-order{background-position: -2px -2px;}
+                    span.icon-product{ background-position: -3px -60px;}
+                    span.icon-project{background-position: -2px -99px;}
+                    span.icon-case{ background-position: -2px -139px;}
+                    span.icon-trust{background-position: -1px -179px;}
+                    span.icon-engineer{background-position: 0 -220px;}
+                    span.icon-finance{ background-position: -3px -260px;}
+                    span.icon-supplier{background-position: -1px -298px;}
+                    span.icon-infor{background-position: -2px -343px;}
+                }
+            }
+            li.active{
+                a{ background: #e69b02; border:1px solid #e69b02; border-top: 0;
+                    span.txt{ color: #fff;}
+                    span.icon-order{background-position: -2px -2px;}
+                    span.icon-product{ background-position: -3px -60px;}
+                    span.icon-project{background-position: -2px -99px;}
+                    span.icon-case{ background-position: -2px -139px;}
+                    span.icon-trust{background-position: -1px -179px;}
+                    span.icon-engineer{background-position: 0 -220px;}
+                    span.icon-finance{ background-position: -3px -260px;}
+                    span.icon-supplier{background-position: -1px -298px;}
+                    span.icon-infor{background-position: -2px -343px;}
+                }
+                a.fir{ border-radius: 6px 6px 0 0; border-top: 1px solid #e69b02;}
+            }
+        }
+    }
+    .right-cont{ float: right; margin-left: 40px; width: 1000px; min-height: 400px;
+        .search-wrap{ clear: both; margin-top: 22px; border:1px solid #e3e3e3; padding:15px 25px; line-height: 25px;
+            .item{ float: left; margin-right: 44px;
+                .tit{ color: #3e3e3e; font-size: 13px; float: left;}
+                .input-txt{ height: 25px; line-height: 25px;}
+                .clear-no-height{ margin-bottom: 16px;}
+                .time-sel-wrap{ float: left; width: 280px;
+                    .time-sel{ position: relative; width: 128px; float: left; border:1px solid #e3e3e3; 
+                        .input-txt{ border:0; padding: 2px 3px;}
+                        .icon-calander{ display: block; width: 20px; height: 16px; position: absolute; top: 6px; right: 6px; background: url(../images/icon-calander.png) no-repeat;}
+                    }
+                    .to{ margin-left: 3px; margin-right: 3px;}
+                }
+                
+            }
+        }
+
+        .order-cont{ margin-top: 30px;
+            .tab-header{ border-bottom: 1px solid #e3e3e3;  position: relative;
+                ul{
+                    li{ float: left; position: relative; bottom: -1px;
+                        a{ display: block; line-height: 50px; padding: 0 30px; font-size: 16px; font-weight: bold; color: #292929;
+                            span.total{ margin: 0 10px;}
+                        }
+                        a:hover{ color: #ee4e4e; border-bottom:1px solid #ee4e4e;}
+                    }
+                    li.active{
+                        a{ color: #ee4e4e; border-bottom:1px solid #ee4e4e;}
+                    }
+                }
+            }
+            .tab-cont{ padding: 20px 0;
+                .list-header{ color: #292929; font-size: 14px; font-weight: bold; line-height: 30px; height: 30px; background: #dfdfdf;
+                    .checkbox{ width: 160px; float: left;
+                        input{ margin-left: 10px;}
+                        span{ margin-left: 20px;}
+                    }
+                    .pro-infor{ width: 170px; float: left; text-align: center;}
+                    .belong-shop{width: 160px; float: left; text-align: center;}
+                    .price{width: 80px; float: left; text-align: center;}
+                    .amount{width: 85px; float: left; text-align: center;}
+                    .status{width: 160px; float: left; text-align: center;}
+                    .option{width: 100px; float: left; text-align: center;}
+                    .option-other{width: 85px; float: left; text-align: center;}
+                }
+                ul.pro-list-wrap{ font-size: 12px;
+                    li{
+                        .order-infor-wrap{ background: #fff; height: 45px; line-height: 45px; color: #292929;
+                            .order-id{  width: 190px; float: left; text-align: left;
+                                input{ margin-right: 5px;}
+                                span{ color: #646464;}
+                            }
+                            .order-time{width: 230px; float: left; text-align: center;}
+                            .order-user{width: 130px; float: left; text-align: center;}
+                            .online-ser{width: 130px; float: left; text-align: center;
+                                img{ vertical-align: middle;}
+                            }
+                        }
+                        .pro-list-wrap{ clear: both; background: #f2f2f2; padding: 15px;
+                            ul.pro-list{ padding-bottom: 30px; margin-bottom: 30px; border-bottom: 1px solid #e6e6e6;
+                                li{overflow: hidden;
+                                    .pro-img{ width: 190px; float: left;}
+                                    .pro-infor{ position: relative; width: 180px; height: 104px; float: left; text-align: left;
+                                        .pro-serv{ margin-top: 10px; position: absolute; bottom: 0;}
+                                        .pro-infor{ line-height: 22px;}
+                                    }
+                                    .shop-name{width: 90px; float: left; text-align: center; line-height: 26px;}
+                                    .pro-price{width: 100px; float: left; text-align: center; color: #ee4e4e; line-height: 26px; font-size: 18px; font-weight: bold;}
+                                    .pro-amount{width: 80px; float: left; text-align: center; color: #292929; line-height: 26px; font-size: 16px; font-weight: bold;}
+                                    .pro-status{width: 160px; float: left; text-align: center; line-height: 26px;}
+                                    .pro-option{width: 90px; float: left; text-align: center; line-height: 26px;
+                                        a{ display: block;}
+                                        a.btn-option{ border:1px solid #ee4e4e; color: #ee4e4e; height: 23px; line-height: 23px; width: 60px; margin:  5px auto; border-radius: 8px;}
+                                        a.btn-option:hover{ text-decoration: none; color: #b31414; border-color: #b31414;}
+                                    }
+                                    .pro-potion-other{width: 80px; float: left; text-align: center; line-height: 26px;}
+                                    a:hover{ text-decoration: underline;}
+                                }
+                            }
+                            .order-detail{ clear: both; color: #383838;
+                                span{ color: #9a9a9a; margin-right: 50px;}
+                            }
+                            .order-status-wrap{ margin-top: 50px; margin-bottom: 50px;
+                                .order-status-inner{ width: 735px; margin: 0 auto;
+                                    div{ position: relative; z-index: 1; float: left; width: 120px; height: 6px; background: url(../images/line-bg.png) repeat-x;
+                                        span.icon-num-off{ z-index: 2; display: block; position: absolute; width: 26px; height: 26px; background: url(../images/order-status-off.png) no-repeat;}
+                                        span.icon-num-on{z-index: 2;display: none; position: absolute; width: 26px; height: 26px; background: url(../images/order-status-on.png) no-repeat;}
+                                        span.step-txt{ position: absolute; top: 16px; right: -40px; display: block; width: 60px; color: #a0a0a0; font-size: 12px;}
+                                    }
+                                    div.status1{ width: 1px;z-index: 7;
+                                        span.icon-num-off, span.icon-num-on{top: -12px; right: -13px; background-position: 0 0; }
+                                    }
+                                    div.status2{z-index: 6;
+                                        span.icon-num-off, span.icon-num-on{top: -12px; right: -13px; background-position: -121px 0; }
+                                    }
+                                    div.status3{z-index: 5;
+                                        span.icon-num-off, span.icon-num-on{top: -12px; right: -13px; background-position: -243px 0; }
+                                    }
+                                    div.status4{z-index: 4;
+                                        span.icon-num-off, span.icon-num-on{top: -12px; right: -13px; background-position: -364px 0; }
+                                    }
+                                    div.status5{z-index: 3;
+                                        span.icon-num-off, span.icon-num-on{top: -12px; right: -13px; background-position: -485px 0; }
+                                    }
+                                    div.status6{z-index: 2;
+                                        span.icon-num-off, span.icon-num-on{top: -12px; right: -13px; background-position: -606px 0; }
+                                    }
+                                    div.status7{ z-index: 1;
+                                        span.icon-num-off, span.icon-num-on{top: -12px; right: -13px; background-position: -728px 0; }
+                                        span.step-txt{ right: -48px;}
+                                    }
+                                    div.active{ background: url(../images/line-on-bg.png) repeat-x;
+                                        span.step-txt{ color: #292929;}
+                                        span.icon-num-off{ display: none;}
+                                        span.icon-num-on{ display: block;}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                ul.page-option-wrap{ overflow: hidden; margin:20px 0;
+                    li{ float: left; color: #646464; font-size: 12px; margin-right: 20px;
+                        input{ margin-right: 10px;}
+                        a.btn-page-option{ display: block; color: #646464; width: 105px; height: 22px; line-height: 22px; float: left; text-align: center; border:1px solid #a3a3a3;}
+                        a.btn-page-option:hover{ color: #ee4e4e; border-color: #ee4e4e;}
+                    }
+                }
+            }
+        }
+    }
+}
+
+a.print{ display: block; background: #fff; border:1px solid #a3a3a3; color: #646464; font-size: 13px; height: 18px; line-height: 18px; padding:0 20px; border-radius: 4px;}
+a.print:hover{ color: #e69b02; border-color: #e69b02;}
+.btn-search{ color: #646464; border:1px solid #646464; border-radius: 6px; background: #fff; height: 35px; line-height: 35px; padding: 0 40px; font-size: 15px; margin-top: 20px; margin-left: 12px;}
+.btn-search:hover{ background: #edac29; color: #fff; border-color: #edac29;}

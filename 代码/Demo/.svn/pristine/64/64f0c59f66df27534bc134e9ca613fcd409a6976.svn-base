@@ -1,0 +1,19 @@
+.tree-node {
+	height: 23px;
+	padding-top: 5px;
+}
+
+.tree-folder {
+	background: url("../jhShop/icon_tree.png") no-repeat 0px 0px;
+	height: 16px;
+}
+
+.tree-folder-open {
+	background: url("../jhShop/icon_tree.png") no-repeat -16px 0px;
+	height: 16px;
+}
+
+.tree-file {
+	background: url("../jhShop/icon_tree.png") no-repeat 0px -16px;
+	height: 16px;
+}

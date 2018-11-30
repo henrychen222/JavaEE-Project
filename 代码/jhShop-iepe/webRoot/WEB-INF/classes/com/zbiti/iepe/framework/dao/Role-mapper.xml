@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zbiti.iepe.framework.dao.RoleDao">
+
+	<select id="getAllRoles" parameterType="com.zbiti.iepe.framework.model.BaseRole" resultMap="BaseRole.BaseRoleResultMap"
+		resultType="com.zbiti.iepe.framework.model.BaseRole">
+		select br.*,bu.user_name,brt.name role_type_cd_name from Base_Role br
+		join base_user bu on br.create_op =
+		bu.user_id
+		join base_role_type brt on brt.role_type_cd = br.role_type_cd
+		where BR.IS_DELETE = 0 order by br.role_name
+	</select>
+
+	<select id="selectRolesByCondlistPage" parameterType="com.zbiti.iepe.framework.model.BaseRole" resultMap="BaseRole.BaseRoleResultMap"
+		resultType="com.zbiti.iepe.framework.model.BaseRole">
+		select br.*,bu.user_name,brt.name role_type_cd_name from Base_Role br
+		join base_user bu on br.create_op = bu.user_id
+		join base_role_type brt on brt.role_type_cd = br.role_type_cd
+		<trim prefix="where" prefixOverrides="and |or">
+			<if test="role.roleName != null and role.roleName != ''">
+				and br.role_name like '%${role.roleName}%'
+			</if>
+			<if test="role.roleTypeCd != null and role.roleTypeCd != ''">
+				and br.role_Type_Cd =#{role.roleTypeCd}
+			</if>
+			<if test="role.createOp != null and role.createOp != ''">
+				and br.create_Op =#{role.createOp}
+			</if>
+			AND BR.IS_DELETE = 0 order by br.role_name
+		</trim>
+	</select>
+
+	<select id="selectUsersByRole" parameterType="string" resultMap="BaseUser.BaseUserResultMap" resultType="com.zbiti.iepe.framework.model.BaseUser">
+		select tab1.*,bo.org_id,bo.org_name from
+		(select bu.*
+		from base_user bu
+		join base_user_2_role bu2r
+		on bu2r.user_id = bu.user_id
+		join Base_Role br
+		on br.role_id = bu2r.role_id
+		where br.role_id=#{roleId}
+		and bu.is_delete = 0
+		and br.is_delete = 0)tab1
+		join BASE_USER_2_ORGANIZATION bu2o
+		on bu2o.user_id = tab1.user_id
+		join base_organization bo
+		on bo.org_id = bu2o.organizational_id
+	</select>
+
+	<update id="deleteRole" parameterType="java.lang.Integer">
+		UPDATE BASE_ROLE BR SET BR.IS_DELETE = 1 WHERE BR.ROLE_ID = #{roleId,
+		jdbcType = INTEGER}
+	</update>
+
+	<select id="getRoleTypeList" resultType="map">
+		select * from base_role_type
+	</select>
+
+	<select id="getRoleById" resultType="com.zbiti.iepe.framework.model.BaseRole" resultMap="BaseRole.BaseRoleResultMap">
+		select * from base_role
+		where role_id = ${roleId}
+	</select>
+
+	<insert id="addRole" useGeneratedKeys="true" keyProperty="role_id"  parameterType="com.zbiti.iepe.framework.model.BaseRole">		
+		insert into base_role(create_op,role_name,role_type_cd,role_desc,is_delete)
+		values
+		(
+		#{createOp, jdbcType = VARCHAR},
+		#{roleName, jdbcType = VARCHAR},
+		#{roleTypeCd, jdbcType = VARCHAR},
+		#{roleDesc, jdbcType = VARCHAR},
+		0
+		)
+	</insert>
+	<update id="updateRole" parameterType="com.zbiti.iepe.framework.model.BaseRole">
+		update base_role
+		set
+		create_op = #{createOp, jdbcType = VARCHAR},
+		role_name =
+		#{roleName, jdbcType = VARCHAR},
+		role_type_cd = #{roleTypeCd, jdbcType = VARCHAR},
+		role_desc = #{roleDesc, jdbcType =
+		VARCHAR},
+		is_delete = #{isDelete, jdbcType = VARCHAR}
+		where role_id = ${roleId}
+	</update>
+
+	<select id="getRolesByUser" parameterType="int" resultType="com.zbiti.iepe.framework.model.BaseRole" resultMap="BaseRole.BaseRoleResultMap">
+		select u2r.user_id,u2r.start_date,u2r.end_date,br.*,bu.useR_NAME,brt.name role_type_cd_name from base_user_2_role u2r
+		join base_role br on br.role_id = u2r.role_id
+		join base_user bu on br.create_op = bu.user_id
+		join base_role_type brt on
+		brt.role_type_cd = br.role_type_cd
+		where u2r.user_id = ${userId} and (u2r.end_date is null or u2r.end_date>now())
+		and
+		br.is_delete =0 order by br.role_name
+	</select>
+
+
+	<delete id="deleteUserRole" parameterType="string">
+		delete from base_user_2_role where user_id in (${userId}) and role_id
+		in( ${roleId})
+	</delete>
+
+
+	<insert id="saveUserRole" parameterType="string">		
+		INSERT into base_user_2_role
+		VALUES
+		(
+		${roleId},${userId},
+		str_to_date(#{startDate},'%Y-%m-%d %H:%i:%s'),
+		str_to_date(#{endDate},'%Y-%m-%d %H:%i:%s')
+		)
+	</insert>
+
+	<insert id="betchInsertUserRole">
+		insert into base_user_2_role
+		SELECT r.role_id,BU.USER_ID,now(),r.end_date
+		FROM base_user_2_role r,BASE_USER BU
+		WHERE R.user_id = #{fromUserId}
+		AND BU.USER_ID IN(
+		<foreach collection="copyUserId" item="item" index="index" separator=",">
+			#{item,jdbcType=VARCHAR}
+		</foreach>
+		)
+		AND r.role_id in(
+		<foreach collection="copyRole" item="item" index="index" separator=",">
+			#{item,jdbcType=VARCHAR}
+		</foreach>
+		)
+		AND NOT EXISTS (SELECT 1
+		FROM base_user_2_role bu2r
+		WHERE bu2r.user_id = BU.USER_ID
+		AND bu2r.role_id = r.role_id)
+	</insert>
+
+
+	<select id="getUsersByRolelistPage" resultMap="BaseUser.BaseUserResultMap" resultType="com.zbiti.iepe.framework.model.BaseUser">
+		SELECT
+			c.USER_ID,c.USER_NAME,c.ACCOUNT_NAME,c.ACCOUNT_PASSWORD_CD,c.USER_STATE_CD,c.SHOW_ORDER_NO,c.IS_DELETE,c.IDENTITY_ID,c.GENDER,c.AGE,c.PHONE_NUMBER,c.EMAIL,c.DESCRIPTION,c.BIRTHDATE,c.NATION,c.ABILITY_CODE,c.NATIVE_PLACE,c.PUBLICIST_FACE,c.SPECIALITY,c.ATTEND_DATE,c.CHOOSE_CORE_DATE,c.CHOOSE_RESERVE_DATE,c.TIPTOP_EDU,c.ISFULLTIME,c.DUTY_LVPD,c.MAJOR_POST,c.PARTTIME_POST,c.WORK_PLACE,c.companyName,
+			d.ORG_ID,d.ORG_NAME
+		FROM
+			(
+				SELECT
+					a.*
+				FROM
+					base_user a
+				JOIN base_user_2_role b ON a.USER_ID = b.USER_ID
+				WHERE
+					b.ROLE_ID = '1'
+			) c
+		JOIN (
+			SELECT
+				e.USER_ID,
+				f.ORG_NAME,
+				f.ORG_ID
+			FROM
+				BASE_USER_2_ORGANIZATION e
+			JOIN base_organization f ON e.ORGANIZATIONAL_ID = f.ORG_ID
+			WHERE
+				f.is_delete = 0
+		) d ON d.user_id = c.user_id
+	</select>
+
+	<select id="getRoleByRoleName" resultType="com.zbiti.iepe.framework.model.BaseRole" resultMap="BaseRole.BaseRoleResultMap">
+		select * from base_role
+		where role_name = #{roleName}
+	</select>
+
+</mapper>

@@ -1,0 +1,57 @@
+@charset "utf-8";
+a.fanlicond:hover {
+	color: orange;
+}
+* {
+	font-family: 微软雅黑;
+}
+.fanlilist thead th {
+  color: #292929;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 30px;
+  height: 30px;
+  width: 200px;
+  background: #dfdfdf;
+  text-align: center;
+}
+.fanlilist
+{
+   text-align: center;
+   width: 100%;
+   height: 100%;
+   display: block;
+   color: #000000;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+.fanlilist tbody tr.pro-list-wrap {
+  font-size: 12px;
+  width: 105px;
+  height: 100px;
+  background: #f2f2f2;
+  text-align:center;
+}
+
+ .fanlilist tbody tr.pro-list-wrap td.month-infor
+{
+  position: relative;
+  width: 270px;
+  float: left;
+  text-align: left;
+  left:50px;
+  top:40px;
+  height: 30px;
+}
+
+ .fanlilist thead th p.month-infor-title
+ {
+  position: relative;
+  width: 270px;
+  float: left;
+  text-align: left;
+  left:50px;
+  height: 30px;
+}

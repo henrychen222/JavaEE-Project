@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zbiti.iepe.framework.dao.MetaDao">
+	<select id="getMetaData" resultType="map">
+		select
+		a.TYPE_ID,TYPE_NAME,b.KEY_ID,KEY_CHN_NAME,
+		KEY_NAME,VALUE_ID,VALUE_TITLE,VALUE
+		from base_meta_type a
+		join
+		base_meta_key b on a.type_id=b.type_id
+		join base_meta_value c on
+		b.key_id=c.key_id
+		join base_meta_key_type d on
+		b.key_type_id=d.key_type_id
+	</select>
+</mapper>

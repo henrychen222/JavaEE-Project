@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace和定义的Mapper接口对应，并实现其中的方法 -->
+
+<mapper namespace="com.zbiti.iepe.framework.dao.UserDao">
+	<!-- id和mapper接口中的方法名对应 -->
+	<select id="getUserById" resultMap="BaseUser.BaseUserResultMap"
+		resultType="com.zbiti.iepe.framework.model.BaseUser">
+		select bu.*,bo.org_id
+		from base_user bu
+		join
+		BASE_USER_2_ORGANIZATION bu2o
+		on bu2o.user_id = bu.user_id
+		join
+		base_organization bo
+		on bo.org_id = bu2o.organizational_id
+		where
+		bu.user_id = #{userId} and bu.is_delete = 0 and bo.is_delete = 0
+		order
+		by bo.org_code,bo.org_id
+	</select>
+
+
+	<select id="selectUserByCondlistPage" parameterType="map"
+		resultMap="BaseUser.BaseUserResultMap" resultType="com.zbiti.iepe.framework.model.BaseUser">
+		select bu.*,bo.org_id
+		from base_user bu
+		join
+		BASE_USER_2_ORGANIZATION bu2o
+		on bu2o.user_id = bu.user_id
+		join
+		base_organization bo
+		on bo.org_id = bu2o.organizational_id
+		<trim prefix="where" prefixOverrides="and |or">
+			<if test="userId != null and userId != ''">
+				bu.user_id = #{userId}
+			</if>
+			<if test="userName != null and userName != ''">
+				and bu.user_name like '%${userName}%'
+			</if>
+			<if test="accountName != null and accountName != ''">
+				and bu.account_name like '%${accountName}%'
+			</if>
+			<if test="userStateCd != null and userStateCd != ''">
+				and bu.user_state_cd = #{userStateCd}
+			</if>
+			<if test="isDelete != null and isDelete != ''">
+				and bu.is_delete = #{isDelete}
+			</if>
+			<if test="orgIds!=null">
+				and org_id in
+				<foreach collection="orgIds" item="oid" open="(" separator=","
+					close=")">
+					#{oid,jdbcType=INTEGER}
+				</foreach>
+			</if>
+			and bu.is_delete = 0
+			and bo.is_delete = 0
+		</trim>
+		order by bo.org_code,bu.user_id
+	</select>
+
+	<!-- 通过组织的id查找该组织下所有的人员 -->
+	<select id="selectUserByOrg" parameterType="string"
+		resultMap="BaseUser.BaseUserResultMap" resultType="com.zbiti.iepe.framework.model.BaseUser">
+		select
+		bu.*,
+		bo.org_id
+		from base_user bu
+		join base_user_2_organization
+		bu2o
+		on bu.user_id=bu2o.user_id
+		join base_organization bo
+		on bo.org_id =
+		bu2o.organizational_id
+		where bo.org_id=#{orgId}
+		and bu.is_delete = 0
+		and
+		bo.is_delete = 0
+
+		order by bo.org_code,bu.user_id
+	</select>
+	<!-- 根据组织机构ID查询下面用户的数量 -->
+	<select id="selectUserCountByOrg" parameterType="string"
+		resultType="map">
+		select count(*) as num
+		from base_user bu
+		join
+		base_user_2_organization bu2o
+		on bu.user_id=bu2o.user_id
+		join
+		base_organization bo
+		on bo.org_id = bu2o.organizational_id
+		where
+		bo.org_id=#{orgId}
+		and bu.is_delete = 0
+		and bo.is_delete = 0
+	</select>
+	<select id="selectAllUser" resultMap="BaseUser.BaseUserResultMap"
+		resultType="com.zbiti.iepe.framework.model.BaseUser">
+		select
+		bu.*,
+		bo.org_id
+		from
+		base_user bu
+		join
+		BASE_USER_2_ORGANIZATION bu2o
+		on bu2o.user_id = bu.user_id
+		join
+		base_organization bo
+		on bo.org_id = bu2o.organizational_id and
+		bu.is_delete = 0 and
+		bo.is_delete = 0
+		order by bo.org_code,bu.user_id
+	</select>
+
+	<update id="saveUser" parameterType="com.zbiti.iepe.framework.model.BaseUser">
+		UPDATE base_user p
+		SET
+		p.user_name = #{userName, jdbcType = VARCHAR},
+		p.account_name =
+		#{accountName, jdbcType = VARCHAR},
+		p.user_state_cd = #{userStateCd,
+		jdbcType = VARCHAR},
+		p.account_password_cd = #{accountPasswordCd,
+		jdbcType = VARCHAR},
+		p.is_delete = #{isDelete, jdbcType = VARCHAR},
+		p.identity_id =#{identityId, jdbcType = VARCHAR},
+		p.gender=#{gender,
+		jdbcType = VARCHAR},
+		p.age =#{age, jdbcType = VARCHAR},
+		p.phone_number =
+		#{phoneNumber, jdbcType = VARCHAR},
+		p.email = #{email, jdbcType =
+		VARCHAR},
+		p.description =#{description,jdbcType = VARCHAR}
+		WHERE
+		p.user_id = #{userId, jdbcType = VARCHAR}
+	</update>
+
+
+	<insert id="addUser" useGeneratedKeys="true" keyProperty="userId" keyColumn="USER_ID" parameterType="com.zbiti.iepe.framework.model.BaseUser">
+		insert into BASE_USER
+		(user_name,account_name,account_password_cd,user_state_cd,show_order_no,is_delete,identity_id,gender,age,phone_number,email,description)
+		values
+		(#{userName, jdbcType = VARCHAR},
+		#{accountName, jdbcType = VARCHAR},
+		#{accountPasswordCd, jdbcType =
+		VARCHAR},
+		#{userStateCd, jdbcType = VARCHAR},
+		0,
+		0,
+		#{identityId, jdbcType
+		= VARCHAR},
+		#{gender, jdbcType = VARCHAR},
+		#{age, jdbcType = VARCHAR},
+		#{phoneNumber, jdbcType = VARCHAR},
+		#{email, jdbcType = VARCHAR},
+		#{description,jdbcType = VARCHAR})
+	</insert>
+
+	<!-- <insert id = "addUserExtends" parameterType="com.zbiti.iepe.framework.model.BaseUser" 
+		> insert into base_user_extend (user_id,identity_id,gender,age,phone_number,email,description) 
+		values (#{userId, jdbcType = VARCHAR}, #{identityId, jdbcType = VARCHAR}, 
+		#{gender, jdbcType = VARCHAR}, #{age, jdbcType = VARCHAR}, #{phoneNumber, 
+		jdbcType = VARCHAR}, #{email, jdbcType = VARCHAR}, #{description,jdbcType 
+		= VARCHAR}) </insert> -->
+
+	<insert id="addUser2Org" parameterType="com.zbiti.iepe.framework.model.BaseUser">
+		insert into
+		BASE_USER_2_ORGANIZATION (user_id,ORGANIZATIONAL_ID)
+		values
+		(#{userId,
+		jdbcType = VARCHAR},
+		#{org.orgId, jdbcType = VARCHAR})
+	</insert>
+
+	<update id="editUser" parameterType="com.zbiti.iepe.framework.model.BaseUser">
+		UPDATE base_user p
+		<set>
+			<if test="userName != null and userName != ''">
+				p.user_name = #{userName, jdbcType = VARCHAR},
+			</if>
+			<if test="accountName != null and accountName != ''">
+				p.account_name = #{accountName, jdbcType = VARCHAR},
+			</if>
+			<if test="userStateCd != null and userStateCd != ''">
+				p.user_state_cd = #{userStateCd, jdbcType = VARCHAR},
+			</if>
+			<if test="accountPasswordCd != null and accountPasswordCd != ''">
+				p.account_password_cd = #{accountPasswordCd, jdbcType =
+				VARCHAR},
+			</if>
+			<if test="identityId != null and identityId != ''">
+				p.identity_id = #{identityId, jdbcType = VARCHAR},
+			</if>
+			<if test="gender != null and gender != ''">
+				p.gender = #{gender, jdbcType = VARCHAR},
+			</if>
+			<if test="age != null and age != ''">
+				p.age = #{age, jdbcType = VARCHAR},
+			</if>
+			<if test="phoneNumber != null and phoneNumber != ''">
+				p.phone_number = #{phoneNumber, jdbcType = VARCHAR},
+			</if>
+			<if test="email != null and email != ''">
+				p.email = #{email, jdbcType = VARCHAR},
+			</if>
+			<if test="description != null and description != ''">
+				p.description = #{description, jdbcType = VARCHAR},
+			</if>
+			<if test="isDelete != null and isDelete != ''">
+				p.is_delete = #{isDelete, jdbcType = VARCHAR},
+			</if>
+		</set>
+		WHERE p.user_id = #{userId, jdbcType = VARCHAR}
+	</update>
+
+	<!-- <update id ="editUserExtends" parameterType="com.zbiti.iepe.framework.model.BaseUser" 
+		> update base_user_extend set user_id = #{userId, jdbcType = VARCHAR}, identity_id 
+		=#{identityId, jdbcType = VARCHAR}, gender=#{gender, jdbcType = VARCHAR}, 
+		age =#{age, jdbcType = VARCHAR}, phone_number = #{phoneNumber, jdbcType = 
+		VARCHAR}, email = #{email, jdbcType = VARCHAR}, description =#{description,jdbcType 
+		= VARCHAR} where user_Id = ${userId} </update> -->
+
+	<update id="editUser2Org" parameterType="com.zbiti.iepe.framework.model.BaseUser">
+		update
+		BASE_USER_2_ORGANIZATION set
+		ORGANIZATIONAL_ID =#{org.orgId,
+		jdbcType =
+		VARCHAR}
+		where user_Id = ${userId}
+	</update>
+
+	<select id="getUserByAccount" parameterType="string"
+		resultMap="BaseUser.BaseUserResultMap" resultType="com.zbiti.iepe.framework.model.BaseUser">
+		select
+		bu.*,bo.org_id
+		from base_user bu
+		join
+		BASE_USER_2_ORGANIZATION bu2o
+		on bu2o.user_id = bu.user_id
+		join
+		base_organization bo
+		on bo.org_id = bu2o.organizational_id
+		where
+		bu.account_name = #{userAccount} and bu.is_delete = 0 and
+		bo.is_delete = 0 and bu.USER_STATE_CD = 1
+		order by bo.org_code,bu.user_id
+	</select>
+
+	<select id="getUserByAccounted" parameterType="string"
+		resultMap="BaseUser.BaseUserResultMap" resultType="com.zbiti.iepe.framework.model.BaseUser">
+		select
+		bu.*,bo.org_id
+		from base_user bu
+		join
+		BASE_USER_2_ORGANIZATION bu2o
+		on bu2o.user_id = bu.user_id
+		join
+		base_organization bo
+		on bo.org_id = bu2o.organizational_id
+		where
+		bu.user_id = #{userAccount} and bu.is_delete = 0 and bo.is_delete = 0
+		order by bo.org_code,bu.user_id
+	</select>
+
+	<select id="getUserByAccounteds" parameterType="string"
+		resultMap="BaseUser.BaseUserResultMap" resultType="com.zbiti.iepe.framework.model.BaseUser">
+		select
+		bu.*,bo.org_id
+		from base_user bu
+		join
+		BASE_USER_2_ORGANIZATION bu2o
+		on bu2o.user_id = bu.user_id
+		join
+		base_organization bo
+		on bo.org_id = bu2o.organizational_id
+		where
+		bu.account_name = #{userAccount} and bu.is_delete = 0 and
+		bo.is_delete
+		= 0
+		order by bo.org_code,bu.user_id
+	</select>
+
+	<select id="getUserCountByAccount" parameterType="string"
+		resultType="int">
+		select count(*)
+		from base_user bu
+		join
+		BASE_USER_2_ORGANIZATION bu2o
+		on bu2o.user_id = bu.user_id
+		join
+		base_organization bo
+		on bo.org_id = bu2o.organizational_id
+		where
+		bu.account_name = #{userAccount}
+		and bu.is_delete = 0 and bo.is_delete
+		= 0
+	</select>
+
+	<select id="getUserByAccountAndSys" resultMap="BaseUser.BaseUserResultMap"
+		resultType="com.zbiti.iepe.framework.model.BaseUser">
+		select bu.*,bo.org_id
+		from base_user bu
+		join
+		BASE_USER_2_ORGANIZATION bu2o
+		on bu2o.user_id = bu.user_id
+		join
+		base_organization bo
+		on bo.org_id = bu2o.organizational_id
+		where
+		bu.account_name = #{userAccount}
+		and bu.user_state_cd = #{sys}
+		and bu.is_delete = 0 and bo.is_delete = 0 and bu.USER_STATE_CD = 1
+		order by bo.org_code,bu.user_id
+	</select>
+
+	<select id="queryUserByIds" parameterType="list"
+		resultMap="BaseUser.BaseUserResultMap" resultType="com.zbiti.iepe.framework.model.BaseUser">
+		SELECT *
+		FROM base_user
+		WHERE user_id IN
+		<foreach collection="list" item="uid" open="(" separator=","
+			close=")">
+			#{uid,jdbcType=NUMERIC}
+		</foreach>
+		AND is_delete = 0
+	</select>
+
+	<insert id="saveUserExtends" parameterType="java.util.List">
+		insert into BASE_USER_PROPERTIES
+		(USER_ID,PROPERTY_ID,SEQ,PROPERTY_VALUE)
+		<foreach collection="list" item="item" index="index"
+			separator="union all">
+			SELECT ${item.userId} ,
+			PROP_ID,
+			NVL((select max(seq) from
+			BASE_USER_PROPERTIES p WHERE P.USER_ID =
+			${item.userId} AND
+			P.PROPERTY_ID = S.PROP_ID),0)+1,
+			'${item.propValue}'
+			FROM
+			BASE_PROPERTY_SPEC S
+			WHERE S.PROP_CODE = '${item.propCode}' AND
+			S.Prop_Used_Object = 'UserDto'
+		</foreach>
+	</insert>
+
+	<update id="updateUserExtends" parameterType="java.util.Map">
+		update BASE_USER_PROPERTIES SET PROPERTY_VALUE = '${propValue}'
+		<trim prefix="where" prefixOverrides="and |or">
+			<if test="seq != null and seq != ''">
+				SEQ= '${seq}'
+			</if>
+			AND USER_ID = '${userId}'
+			AND PROPERTY_ID = (select prop_id FROM
+			BASE_PROPERTY_SPEC S WHERE
+			S.PROP_CODE = '${propCode}' AND
+			S.Prop_Used_Object = 'UserDto')
+		</trim>
+	</update>
+
+
+	<select id="getAllUsers" parameterType="com.zbiti.iepe.framework.model.BaseUser"
+		resultMap="BaseUser.BaseUserResultMap" resultType="com.zbiti.iepe.framework.model.BaseUser">
+		select bu.* from
+		base_user bu
+		join base_position bp on
+		to_char(bu.user_id)=bp.position_code
+		where bu.is_delete=0 order by
+		bu.user_name
+	</select>
+
+	<select id="getUserIdByAccount" parameterType="string"
+		resultMap="BaseUser.BaseUserResultMap" resultType="com.zbiti.iepe.framework.model.BaseUser">
+		select bu.*
+		from
+		base_user bu
+		where bu.account_name = #{Account} and bu.is_delete = 0
+	</select>
+	<!-- 通过组织的id,用户名查找该组织下所有的人员 -->
+	<select id="selectUserByOrgDim" parameterType="string"
+		resultMap="BaseUser.BaseUserResultMap" resultType="com.zbiti.iepe.framework.model.BaseUser">
+		select
+		bu.*,
+		bo.org_id
+		from base_user bu
+		join base_user_2_organization
+		bu2o
+		on bu.user_id=bu2o.user_id
+		join base_organization bo
+		on bo.org_id =
+		bu2o.organizational_id
+		where bo.org_id=#{orgId}
+		and bu.user_name like
+		'%${userName}%'
+		and bu.is_delete = 0
+		and bo.is_delete = 0
+
+		order by
+		bo.org_code,bu.user_id
+	</select>
+
+	<select id="selectPhoneAndAreaIdByAccountName" parameterType="string"
+		resultType="map">
+		SELECT BU.PHONE_NUMBER,BO.AREA_ID FROM
+		BASE_USER
+		BU,BASE_USER_2_ORGANIZATION BUO,BASE_ORGANIZATION BO
+		WHERE
+		BU.USER_ID=BUO.USER_ID
+		AND BUO.ORGANIZATIONAL_ID=BO.ORG_ID
+		AND
+		BU.PHONE_NUMBER IS NOT NULL AND AREA_ID IS NOT NULL
+		AND
+		BU.ACCOUNT_NAME=#{accountName}
+	</select>
+
+	<select id="selectPhoneAndAreaIdByPositionId" parameterType="Long"
+		resultType="map">
+		SELECT DISTINCT BU.PHONE_NUMBER,BO.AREA_ID FROM BASE_USER
+		BU,BASE_POSITION BP,BASE_USER_2_POSITION BUP ,
+		BASE_USER_2_ORGANIZATION BUO,BASE_ORGANIZATION BO
+		WHERE
+		BU.USER_ID=BUP.USER_ID AND BU.USER_ID=BUO.USER_ID AND
+		BUO.ORGANIZATIONAL_ID=BO.ORG_ID
+		AND BU.PHONE_NUMBER IS NOT NULL AND
+		AREA_ID IS NOT NULL AND
+		BUP.POSITION_ID=#{positionId}
+	</select>
+	<!-- 入库前验证 -->
+	<select id="checkUser" parameterType="string"
+		resultMap="BaseUser.BaseUserResultMap" resultType="com.zbiti.iepe.framework.model.BaseUser">
+		select bu.*
+		from
+		base_user bu
+		where bu.account_name = #{Account}
+	</select>
+	<select id="getTopOrgIdByAreaId" resultType="string">
+		select t.org_id
+		from
+		base_organization t
+		where t.area_id = #{areaId}
+		and t.parent_id = 17
+		and
+		t.org_level_cd = '3'
+	</select>
+
+
+	<select id="selectUserByCondTwolistPage" parameterType="map"
+		resultMap="BaseUser.BaseUserResultMap" resultType="com.zbiti.iepe.framework.model.BaseUser">
+		select bu.*,bo.org_id
+		from base_user bu
+		join
+		BASE_USER_2_ORGANIZATION bu2o
+		on bu2o.user_id = bu.user_id
+		join
+		base_organization bo
+		on bo.org_id = bu2o.organizational_id
+		<trim prefix="where" prefixOverrides="and |or">
+			<if test="userIds != null and userIds!=''">
+				bu.user_id in
+				<foreach collection="userIds" item="uid" open="(" separator=","
+					close=")">
+					#{uid,jdbcType=NUMERIC}
+				</foreach>
+			</if>
+			<if test="userName != null and userName != ''">
+				and bu.user_name like '%'||#{userName}||'%'
+			</if>
+			<if test="accountName != null and accountName != ''">
+				and bu.account_name = #{accountName}
+			</if>
+			<if test="filter != null and filter!=''">
+				and bu.user_id NOT IN
+				<foreach collection="filter" item="uid" open="(" separator=","
+					close=")">
+					<if test="uid!=null and uid!=''">
+						#{uid,jdbcType=NUMERIC}
+					</if>
+				</foreach>
+			</if>
+			<if test="orgIds!=null">
+				and bo.org_id in
+				<foreach collection="orgIds" item="oid" open="(" separator=","
+					close=")">
+					#{oid,jdbcType=INTEGER}
+				</foreach>
+			</if>
+			<if test="areaId != null and areaId != ''">
+				<if test="areaId != 2">
+					and bo.area_id in (#{areaId},2)
+				</if>
+			</if>
+			and bu.is_delete = 0
+			and bo.is_delete = 0
+			order by
+			bo.org_code,bu.user_id
+		</trim>
+	</select>
+</mapper>

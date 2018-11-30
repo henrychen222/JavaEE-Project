@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace和定义的Mapper接口对应，并实现其中的方法 -->
+
+<mapper namespace="com.zbiti.iepe.framework.dao.StudentDao">
+	<!-- id和mapper接口中的方法名对应 -->
+	<!-- 利用分页查询所有学生信息 -->
+	<select id="getAllStudent" parameterType="com.zbiti.iepe.framework.model.QueryInfo"
+	resultType="com.zbiti.iepe.framework.model.Student">
+		select * from student_registration limit #{startindex},#{pagesize}
+	</select>
+	
+	<!-- 查询学籍表中的记录总数 -->
+	<select id="getStudentCount" resultType="int">
+		select count(student_registration_id) from student_registration
+	</select>
+	
+	<!-- 按照条件查询学籍信息 -->
+	<select id="findStudentByQuery" parameterType="com.zbiti.iepe.framework.model.StudentQueryInfoCustom"
+	resultType="com.zbiti.iepe.framework.model.Student">
+		select * from student_registration 
+		  <where>
+			 <if test="studentQueryInfoCustom!=null">
+			 	<if test="studentQueryInfoCustom.studentId!=null and studentQueryInfoCustom.studentId!=''">
+			 		and student_number ${studentId} limit #{startindex},#{pagesize}
+			 	</if>
+			 	<if test="studentQueryInfoCustom.studentName!=null and studentQueryInfoCustom.studentName!=''">
+			 		and student_name like '%${studentName}%' limit #{startindex},#{pagesize}
+			 	</if>
+			 	<if test="studentQueryInfoCustom.studentId!=null and studentQueryInfoCustom.studentId!=''
+			 	and studentQueryInfoCustom.studentName!=null and studentQueryInfoCustom.studentName!=''">
+			 		and student_number=${studentId} and student_name=${studentName} limit #{startindex},#{pagesize}
+			 	</if>
+			 </if>
+		  </where>
+	</select>
+	<!-- 按照条件查询学籍信息数量 -->
+	<select id="getStudentByQueryCount" parameterType="com.zbiti.iepe.framework.model.StudentQueryInfoCustom" resultType="int">
+		select count(student_registration_id) from student_registration where student_number=${studentId} and student_name=${studentName}
+	</select>
+	
+	<insert id="save" parameterType="com.zbiti.iepe.framework.model.Student">
+		insert into student_registration(student_number,student_name,class_name,gender) values(#{student_number},#{student_name},#{class_name},#{gender})
+	</insert>
+	
+</mapper>

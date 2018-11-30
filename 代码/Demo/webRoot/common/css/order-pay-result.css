@@ -1,0 +1,98 @@
+.center {
+  width: 660px;
+  margin: 150px auto;
+  clear: both;
+  overflow: hidden;
+}
+
+.center .order-result-win {
+	height: 350px;
+	border: 1px solid #CCCCCC;
+	overflow: hidden;
+	background: #e9e8e4 none repeat scroll 0 0;
+}
+
+.center .order-result-win .order-result-title {
+	width: 80%;
+	height: 70px;
+	line-height:85px;
+	margin: 10px auto 0px auto;
+}
+.center .order-result-win .order-result-title span {
+	font-size: 20px;
+	font-weight:bold;
+	width: 20%;
+	display: block;
+	float: left;
+	height: 100%;
+}
+
+.center .order-result-win .order-result-title i {
+	height: 20px;
+	width:1%;
+	border-left: 1px solid #999999;
+	margin-right: 10px;
+} 
+
+.center .order-result-win .order-result-content {
+	width: 90%;
+	background: #f2f2f2 none repeat scroll 0 0;
+	margin: 0 auto;
+	border: 1px solid #d9d9d9;
+	height: 70%;
+}
+
+.center .order-result-win .order-result-content .order-content-left {
+	float: left;
+	height: 100%;
+	width: 20%;
+}
+
+.center .order-result-win .order-result-content .order-content-right {
+	float: left;
+	height: 100%;
+	width: 80%;
+}
+
+.center .order-result-win .order-result-content .order-content-right .order-right-title {
+	margin-top:30px;
+	font-size: 16px;
+}
+
+.center .order-result-win .order-result-content .order-content-right p {
+	margin: 5px 0px;
+}
+
+.center .order-result-win .order-result-content .order-content-right ul {
+	padding: 10px 0px;
+	border-top:1px solid #d9d9d9;
+	margin-top:10px;
+	width: 90%; 
+}
+
+.center .order-result-win .order-result-content .order-content-right ul li {
+	height: 35px;
+	line-height: 35px;
+}
+
+.center .order-result-win .order-result-content .order-content-right ul li .block{
+	width: 10px;
+	height: 10px;
+	float: left;
+	display: block;
+	line-height: 20px;
+	margin: 13px 10px 0px 0px;
+	background: #828282 none repeat scroll 0 0;
+}
+
+.center .order-result-win .order-result-content .order-content-right .order-right-href {
+	color:#e8a226;
+}
+
+.center .order-result-win .order-result-content .order-content-left .order-result-img{
+	margin: 0 auto;
+	display: block;
+	width: 60px;
+	height: 60px;
+	margin-top: 25px;
+}
