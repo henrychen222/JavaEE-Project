@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>控制台 - Bootstrap后台管理系统模版Ace下载</title>
+		<meta name="keywords" content="Bootstrap模版,Bootstrap模版下载,Bootstrap教程,Bootstrap中文" />
+		<meta name="description" content="站长素材提供Bootstrap模版,Bootstrap教程,Bootstrap中文翻译等相关Bootstrap插件下载" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		
+		<script src="<%=request.getContextPath()%>/common/assets/js/jquery-2.0.3.min.js"></script>
+		
+		<script src="<%=request.getContextPath()%>/common/assets/js/bootstrap.min.js"></script>
+		<link href="<%=request.getContextPath()%>/common/assets/css/bootstrap.min.css" rel="stylesheet" />
+		
+		
+		<link rel="stylesheet" href="<%=request.getContextPath()%>/common/assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="<%=request.getContextPath()%>/common/assets/css/ace.min.css" />
+		<link rel="stylesheet" href="<%=request.getContextPath()%>/common/assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="<%=request.getContextPath()%>/common/assets/css/ace-skins.min.css" />
+
+		<script src="<%=request.getContextPath()%>/common/assets/js/ace-extra.min.js"></script>
+		<script src="<%=request.getContextPath()%>/common/assets/js/ace.min.js"></script>
+		
+
+		<script src="<%=request.getContextPath()%>/common/assets/js/bootstrap-tab.js"></script>
+ 
+		<div class="sidebar" id="sidebar">
+			<ul class="nav nav-list" id="menu">
+					<li class="active">
+							<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+								<i class="icon-dashboard"></i>
+								<span class="menu-text"> 首页 </span>
+							</a>
+						</li>
+
+						<li>
+							<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')"  class="dropdown-toggle">
+								<i class="icon-cogs"></i>
+								<span class="menu-text">系统管理 </span>
+								
+								<b class="arrow icon-angle-down"></b>
+							</a>
+							<ul class="submenu">
+								<li>
+									<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+										<i class="icon-double-angle-right"></i>
+										用户管理
+									</a>
+								</li>
+								<li>
+									<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+										<i class="icon-double-angle-right"></i>
+										菜单管理
+									</a>
+								</li>
+								<li>
+									<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+										<i class="icon-double-angle-right"></i>
+										角色管理
+									</a>
+								</li>
+								<li>
+									<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+										<i class="icon-double-angle-right"></i>
+										修改密码
+									</a>
+								</li>
+								<li>
+									<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+										<i class="icon-double-angle-right"></i>
+										日主查看
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')"  class="dropdown-toggle">
+								<i class="icon-user"></i>
+								<span class="menu-text">用户管理 </span>
+								
+								<b class="arrow icon-angle-down"></b>
+							</a>
+							<ul class="submenu">
+								<li>
+									<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+										<i class="icon-double-angle-right"></i>
+										用户管理
+									</a>
+								</li>
+								<li>
+									<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+										<i class="icon-double-angle-right"></i>
+										菜单管理
+									</a>
+								</li>
+								<li>
+									<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+										<i class="icon-double-angle-right"></i>
+										角色管理
+									</a>
+								</li>
+								<li>
+									<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+										<i class="icon-double-angle-right"></i>
+										修改密码
+									</a>
+								</li>
+								<li>
+									<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+										<i class="icon-double-angle-right"></i>
+										日主查看
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="addTabs()" class="dropdown-toggle">
+								<i class="icon-desktop"></i>
+								<span class="menu-text"> UI 组件 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul class="submenu">
+								<li>
+									<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+										<i class="icon-double-angle-right"></i>
+										组件
+									</a>
+								</li>
+
+								<li>
+									<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+										<i class="icon-double-angle-right"></i>
+										按钮 &amp; 图表
+									</a>
+								</li>
+
+								<li>
+									<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+										<i class="icon-double-angle-right"></i>
+										树菜单
+									</a>
+								</li>
+
+								<li>
+									<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+										<i class="icon-double-angle-right"></i>
+										jQuery UI
+									</a>
+								</li>
+
+								<li>
+									<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+										<i class="icon-double-angle-right"></i>
+										可拖拽列表
+									</a>
+								</li>
+
+								<li>
+									<a href="#" class="dropdown-toggle" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+										<i class="icon-double-angle-right"></i>
+
+										三级菜单
+										<b class="arrow icon-angle-down"></b>
+									</a>
+
+									<ul class="submenu">
+										<li>
+											<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+												<i class="icon-leaf"></i>
+												第一级
+											</a>
+										</li>
+
+										<li>
+											<a href="#" class="dropdown-toggle" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+												<i class="icon-pencil"></i>
+
+												第四级
+												<b class="arrow icon-angle-down"></b>
+											</a>
+
+											<ul class="submenu">
+												<li>
+													<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+														<i class="icon-plus"></i>
+														添加产品
+													</a>
+												</li>
+
+												<li>
+													<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+														<i class="icon-eye-open"></i>
+														查看商品
+													</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="addTabs()" class="dropdown-toggle">
+								<i class="icon-desktop"></i>
+								<span class="menu-text"> UI 组件 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul class="submenu">
+								<li>
+									<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+										<i class="icon-double-angle-right"></i>
+										组件
+									</a>
+								</li>
+
+								<li>
+									<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+										<i class="icon-double-angle-right"></i>
+										按钮 &amp; 图表
+									</a>
+								</li>
+
+								<li>
+									<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+										<i class="icon-double-angle-right"></i>
+										树菜单
+									</a>
+								</li>
+
+								<li>
+									<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+										<i class="icon-double-angle-right"></i>
+										jQuery UI
+									</a>
+								</li>
+
+								<li>
+									<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+										<i class="icon-double-angle-right"></i>
+										可拖拽列表
+									</a>
+								</li>
+
+								<li>
+									<a href="#" class="dropdown-toggle" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+										<i class="icon-double-angle-right"></i>
+
+										三级菜单
+										<b class="arrow icon-angle-down"></b>
+									</a>
+
+									<ul class="submenu">
+										<li>
+											<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+												<i class="icon-leaf"></i>
+												第一级
+											</a>
+										</li>
+
+										<li>
+											<a href="#" class="dropdown-toggle" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+												<i class="icon-pencil"></i>
+
+												第四级
+												<b class="arrow icon-angle-down"></b>
+											</a>
+
+											<ul class="submenu">
+												<li>
+													<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+														<i class="icon-plus"></i>
+														添加产品
+													</a>
+												</li>
+
+												<li>
+													<a href="#" onclick="addTabs('1','分页测试','/user/demo_PageHelper.do')">
+														<i class="icon-eye-open"></i>
+														查看商品
+													</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+			</ul>
+			<div class="sidebar-collapse" id="sidebar-collapse">    
+				<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i> 
+			</div>   
+		</div>
+		
+		<div class="main-content">
+			<div class="page-content">        
+				<div class="row">          
+					<div class="col-xs-12" style="padding-left:5px;">  
+						<ul class="nav nav-tabs" role="tablist">           
+							<li class="active"><a href="#Index" role="tab" data-toggle="tab">首页</a></li>       
+							</ul>           
+							<div class="tab-content">             
+								<div role="tabpanel" class="tab-pane active" id="Index">           
+								</div>          
+							</div>        
+					</div>       
+				</div>    
+			</div>    
+		</div>
+		
+
+	</head>
+
+<body>
+</body>
+</html>
+

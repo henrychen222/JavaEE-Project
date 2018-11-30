@@ -1,0 +1,189 @@
+.top-nav {
+  background: #f7f7f7;
+   height: 38px;
+  line-height: 38px;
+}
+.top-nav .top-nav-wrap {
+  padding: 0;
+    height: 38px;
+  line-height: 38px;
+}
+.top-nav .top-nav-wrap .line {
+  top: 15px!important;
+}
+.center {
+	width: 100%;
+	margin: 0px auto 70px;
+	clear: both;
+	min-height:450px;
+	padding: 55px 0px;
+	background-image:url(../images/login-backgroug.png); 
+	background-position: center 0; 
+	background-repeat: no-repeat; 
+	zoom: 1; 
+}
+.center .left {
+  float: left;
+  width: 600px;
+  height: 320px;
+}
+.center .left img {
+  display: block;
+ /*  margin: -50px auto; */
+  width: 599px;
+  height: 319px;
+}
+.center .right-log {
+  float: right;
+  width:500px;
+  background-color: rgba(0,0,0,0.5);/* IE9、标准浏览器、IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂 */
+}
+
+@media \0screen\,screen\9 {/* 只支持IE6、7、8 */
+  .center .right-log{
+    background-color:#000000;
+    filter:Alpha(opacity=50);
+    position:static; /* IE6、7、8只能设置position:static(默认属性) ，否则会导致子元素继承Alpha值 */
+    *zoom:1; /* 激活IE6、7的haslayout属性，让它读懂Alpha */
+  }
+  .center .right-log input{
+    position: relative;/* 设置子元素为相对定位，可让子元素不继承Alpha值 */
+  }  
+}
+
+
+.center .right-log ul {
+	width: 85%;
+	margin: 0 auto;
+	
+}
+
+.center .right-log ul li {
+  clear: both;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.center .right-log ul li .login-tit {
+  float: left;
+  color: #646464;
+  font-size: 18px;
+  font-weight: normal;
+}
+.center .right-log ul li .link-regist {
+  float: right;
+  color: #e69b02;
+  font-size: 18px;
+  padding-top: 15px;
+}
+.center .right-log ul li .input-wrap {
+  padding: 0px 10px;
+  overflow: hidden; 
+  background-color: #fff;
+}
+.center .right-log ul li .input-wrap span.icon-phonenum {
+  display: block;
+  float: left;
+  width: 16px;
+  height: 10px;
+  margin-top: 15px;
+  background: url(../jhShop/icon-phonenumber.png) no-repeat;
+}
+.center .right-log ul li .input-wrap .input-txt {
+  border: 0;
+  font-size: 15px;
+}
+.center .right-log ul li .input-wrap span.line {
+  display: block;
+  float: left;
+  width: 1px;
+  height: 13px;
+  background: #e1e1e1;
+  margin-left: 12px;
+  margin-top: 14px;
+}
+.center .right-log ul li .input-wrap span.icon-pwd {
+  display: block;
+  float: left;
+  width: 15px;
+  height: 14px;
+  margin-top: 13px;
+  background: url(../jhShop/icon-pwd.png) no-repeat;
+}
+.center .right-log ul li .verify-wrap {
+    float: left;
+  width: 143px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 27px;
+  color: #fff;
+  margin-left: 25px;
+  cursor: pointer;
+  background: #99bfe4;
+}
+
+.center .right-log ul li .input-code{
+	cursor:pointer;
+	float: right;
+	margin-right: 15px;
+	background: #99bfe4;
+	text-align:center;
+	font-size:22px;
+	width:120px;
+	height:40px;
+	display: block;
+}
+
+
+.center .right-log ul li .change-code {
+  float: left;
+  color: #8896b0;
+  font-size: 12px;
+  line-height: 16px;
+  height:34px;
+  padding:3px 12px;
+  background-color: #fff;
+}
+.center .right-log ul li a.forg-pwd {
+    position: absolute;
+  top: 12px;
+  right: 5px;
+  color: #a0a0a0;
+}
+.center .right-log ul li a.free-regist {
+  font-size: 14px;
+  line-height: 22px;
+}
+.center .right-log ul li a.forg-pwd:hover,
+.center .right-log ul li a.link-regist:hover {
+  text-decoration: underline;
+}
+.center .right-log ul li input.btn-login {
+  background: #9e0400;
+  color: #fff;
+  font-size: 30px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  width: 100%;
+}
+.center .right-log ul li input.btn-login:hover {
+  background: #7c0602;
+}
+.footer {
+  border-top: 1px solid #ececec;
+}
+.footer .copyright {
+  background: #fafafa;
+}
+.logo-div{
+	width: 1240px;
+	margin: 0 auto;
+	display: block;
+	padding: 20px 0px;
+}
+.center .login-block{
+	width: 1240px;
+	margin: 0 auto;
+	display: block;
+}

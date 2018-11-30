@@ -1,0 +1,60 @@
+/* CSS Document */
+*{margin:0px;padding:0px;}
+html,body{height:100%;}
+li{list-style-type:none;}
+img{border:0px;vertical-align:middle;}
+a{text-decoration:none;outline:none;blr:expression(this.onFocus=this.blur());}
+.clear{clear:both;}
+.ce{display:block;}
+.ce li{border-top:solid 1px #e5e3da;
+border-left:solid 1px #e5e3da;
+border-right:solid 1px #e5e3da;
+border-bottom:solid 0px #e5e3da;
+background:none;font-size: 18px;}
+.more{}
+.ce li a{padding: 10px 10px 10px 40px;display:block;cursor:pointer;background:url(../../common/images/tu.png) no-repeat 10px center #cacaca;border-bottom:solid 1px #e5e3da;}
+.ce li a:hover{background: no-repeat 10px center #BEBEBE;}
+.ce li .dqian{background:none;}
+.ce li .xz{background:url(../../common/images/tu.png) no-repeat 10px center #BEBEBE;}
+
+.er{display:none;}
+.er li{width:100%;border:solid 0px #e5e3da;}
+.er li a{display:block;padding:15px 0px 15px 50px;background:#cacaca;font-size: 16px;}
+.er li a:hover,.er li .sen_x{border-bottom:solid 1px #e5e3da;}
+.thr{display:none;}
+.thr li{margin-bottom:1px;position:relative;}
+.er  .thr li a{background:none;}
+.er  .thr li a:hover{color:#3A5FCD}
+.er  .thr li .xuan{color:#3A5FCD}
+.more1{margin-left: 28px;margin-top: -4px;}
+
+
+
+.inpu {cursor: pointer;filter:alpha(opacity=0);-moz-opacity:0; opacity:0;width:29px;height:29px;}
+.span{float:left;display:block;padding:4px 40px 0px 0px;color:#000;}
+.span1{color:#f00;float:left;display:block;padding:4px 40px 0px 0px;}
+.span2{color:#000;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

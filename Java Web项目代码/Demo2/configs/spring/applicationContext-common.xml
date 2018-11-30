@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/util
+		http://www.springframework.org/schema/util/spring-util-3.0.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		http://www.springframework.org/schema/aop  
+		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		http://www.springframework.org/schema/task
+		http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:iepe.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- AOP自动代理 -->
+	<aop:aspectj-autoproxy />
+
+	<!-- task任务扫描注解 -->
+	<task:annotation-driven />
+	<!-- 自动检测并装配 -->
+	<context:component-scan
+		base-package="com.jd" />
+	<!-- annotation默认的方法映射适配器 -->
+	<bean id="handlerMapping"
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<!-- 解释JSON -->
+			<list>
+				<bean
+					class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+					<property name="supportedMediaTypes">
+						<list>
+							<value>text/html;charset=UTF-8</value>
+						</list>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- 配置DataSource数据源 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${jdbc.driverClassName}"></property>
+		<property name="jdbcUrl" value="${jdbc.url}"></property>
+		<property name="user" value="${jdbc.username}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+		<property name="acquireIncrement" value="${acquireIncrement}"></property>
+		<property name="maxIdleTime" value="${maxIdleTime}"></property>
+		<property name="initialPoolSize" value="${initialPoolSize}"></property>
+		<property name="maxPoolSize" value="${maxPoolSize}"></property>
+		<property name="minPoolSize" value="${minPoolSize}"></property>
+		<property name="maxStatements" value="${maxStatements}"></property>
+		<property name="maxStatementsPerConnection" value="${maxStatementsPerConnection}"></property>
+		<property name="testConnectionOnCheckin" value="${testConnectionOnCheckin}" />
+		<property name="automaticTestTable" value="${automaticTestTable}" />
+		<property name="idleConnectionTestPeriod" value="${idleConnectionTestPeriod}" />
+		<property name="checkoutTimeout" value="${checkoutTimeout}" />
+		<property name="acquireRetryAttempts" value="${acquireRetryAttempts}" />
+		<property name="acquireRetryDelay" value="${acquireRetryDelay}" />
+	</bean>
+
+	<!-- 事务 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 启用申明式事务，自动探测@Transactional注解 -->
+	<tx:annotation-driven />
+
+	<!-- 配置SqlSessionFactoryBean -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis/mybatis.xml" />
+		<!-- mapper和resultmap配置路径 -->
+		<property name="mapperLocations">
+			<list>
+				<!-- 表示在com.jd包或以下所有目录中，以-resultmap.xml结尾所有文件 -->
+				<!-- <value>classpath*:com/jd/**/**/model/*-resultmap.xml</value> -->
+				<value>classpath*:com/jd/**/**/dao/*-mapper.xml</value>
+				<value>classpath*:com/jd/**/**/dao/*/*-mapper.xml</value>
+			</list>				
+		</property>
+	</bean>
+
+	<!-- 通过扫描的模式，扫描目录在com/jd/**/dao目录下 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.jd.**.dao" />
+	</bean>
+
+<!-- 	<bean class="com.zbiti.iepe.framework.util.ProductUtil"></bean> -->
+<!-- 配置拦截器 -->
+<!-- 	<mvc:interceptors>   -->
+<!-- 		<mvc:interceptor> -->
+<!-- 			<mvc:mapping path="/**"/> 	 -->
+			<!-- 需排除拦截的地址 -->   		
+<!-- 			<bean class="com.jd.web.framework.util.AuthInterceptor" > -->
+<!-- 				<property name="excludedUrls"> -->
+<!--                     <list> -->
+<!--                         <value>/login/login.do</value> -->
+<!--                         <value>/login/logOut.do</value> -->
+<!--                     </list> -->
+<!--                 </property> -->
+<!-- 			</bean> -->
+<!-- 		</mvc:interceptor> -->
+<!-- 	</mvc:interceptors> -->
+</beans>

@@ -1,0 +1,129 @@
+.top-nav {
+  background: #f7f7f7;
+  height: 38px;
+  line-height: 38px;
+  width: 600px;
+}
+.top-nav .top-nav-wrap {
+  padding: 0;
+    height: 38px;
+  line-height: 38px;
+}
+.top-nav .top-nav-wrap .line {
+  top: 15px!important;
+}
+.center {
+  width: 400px;
+  margin: 40px auto;
+  clear: both;
+  overflow: hidden;
+  margin-left: 45px;
+}
+
+.center .right-log {
+  float: right;
+}
+.center .right-log ul li {
+  clear: both;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.center .right-log ul li .login-tit {
+  float: left;
+  color: #646464;
+  font-size: 18px;
+  font-weight: normal;
+}
+.center .right-log ul li .link-regist {
+  float: right;
+  color: #e69b02;
+  font-size: 14px;
+}
+.center .right-log ul li .input-wrap {
+  border: 1px solid #e5e5e5;
+  padding: 5px 20px;
+  overflow: hidden;
+}
+.center .right-log ul li .input-wrap span.icon-phonenum {
+  display: block;
+  float: left;
+  width: 16px;
+  height: 10px;
+  margin-top: 15px;
+  background: url(../jhShop/icon-phonenumber.png) no-repeat;
+}
+.center .right-log ul li .input-wrap .input-txt {
+  border: 0;
+  font-size: 15px;
+}
+.center .right-log ul li .input-wrap span.line {
+  display: block;
+  float: left;
+  width: 1px;
+  height: 13px;
+  background: #e1e1e1;
+  margin-left: 12px;
+  margin-top: 14px;
+}
+
+
+
+.center .right-log ul li .input-wrap span.icon-pwd {
+  display: block;
+  float: left;
+  width: 15px;
+  height: 14px;
+  margin-top: 13px;
+  background: url(../jhShop/icon-pwd.png) no-repeat;
+}
+.center .right-log ul li .verify-wrap {
+    float: right;
+  width: 143px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 27px;
+  color: #fff;
+  margin-right: 15px;
+  cursor: pointer;
+  background: #99bfe4;
+}
+.center .right-log ul li .change-code {
+  float: right;
+  color: #123457;
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 3px;
+}
+.center .right-log ul li a.forg-pwd {
+    position: absolute;
+  top: 12px;
+  right: 5px;
+  color: #a0a0a0;
+}
+.center .right-log ul li a.free-regist {
+  font-size: 14px;
+  line-height: 22px;
+}
+.center .right-log ul li a.forg-pwd:hover,
+.center .right-log ul li a.link-regist:hover {
+  text-decoration: underline;
+}
+.center .right-log ul li input.btn-login {
+  background: #e69b02;
+  color: #fff;
+  font-size: 30px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  width: 100%;
+}
+.center .right-log ul li input.btn-login:hover {
+  background: #dd9503;
+}
+.footer {
+  border-top: 1px solid #ececec;
+}
+.footer .copyright {
+  background: #fafafa;
+}

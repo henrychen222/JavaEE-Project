@@ -1,0 +1,347 @@
+input.mmselect
+{
+	margin-left:50px;
+	margin-top:10px;
+}
+          
+div.mmdetailoneline
+{
+	position: relative;
+	float:left;
+}		  
+
+input.mmselectallbox
+{
+	margin-left:150px;
+	margin-top:10px;
+}
+div.mmselectall
+{
+	position: relative; 
+	left:50px;
+	top:5px;
+}
+input.mmdeletebtn
+{
+	position: relative; 
+	left:150px;
+	top:5px;
+}
+a.mmpageindex
+{
+	position: relative; 
+	left:590px;
+	top:5px;
+}
+input.mmnecxtpage
+{
+	position: relative; 
+	left:630px;
+	top:5px;
+}
+
+input.mmperpage
+{
+	position: relative; 
+	left:550px;
+	top:5px;
+}
+div.messagemanagerline
+{
+	width:100%;
+	height:2px;
+	top:500px;
+	background-color:#e4e4e4;
+	
+}
+
+div.messagemanagertitle
+ {
+  color: #676767;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 30px;
+  text-align: left;
+  top:50px;
+}
+
+div.messagemanager-head
+{
+	margin:0;
+	padding:0;
+	width:100%;
+	height:50px;
+	top:50px;
+	
+}
+
+a.messagemanager-head-all
+ {
+	position: relative;
+	color: #e59c01;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 20px;
+	text-align: left;
+	height: 30px;
+	width: 80px;
+	float: left;
+	top:20px;
+	
+	display:inline;
+}
+
+a.messagemanager-head-systerm
+ {
+	position: relative;
+	color: #999999;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 20px;
+	text-align: left;
+	height: 30px;
+	width: 80px;
+	float: left;
+	top:20px;
+	left:80px;
+	display:inline;
+}
+
+a.messagemanager-head-direction
+ {
+	position: relative;
+	color: #999999;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 20px;
+	text-align: left;
+	height: 30px;
+	width: 80px;
+	float: left;
+	left:160px;
+	top:20px;
+	display:inline;
+}
+div.messagemanager-detail1
+{
+	margin:0;
+	padding:0;
+	width:100%;	
+	top:50px;	
+	
+}
+
+div.messagemanager-detail2
+{
+	margin:0;
+	padding:0;
+	width:100%;	
+	top:50px;
+	display:none;
+}
+
+div.messagemanager-detail3
+{
+	margin:0;
+	padding:0;
+	width:100%;	
+	top:50px;
+	display:none;
+}
+.mmnoticelist
+{
+   text-align: center;
+   width: 100%;
+   display: block;
+   color: #000000;
+  
+   white-space: nowrap;
+   
+}
+
+div.messagemanagertop{
+	position: relative; 
+	top:20px;
+	height: 150px;
+	width:150px;
+	display: block;
+	background:url(../../content/images/messagemanager.jpg) no-repeat;
+}
+
+img.messagemanagerpic 
+{
+	position: relative; 
+	left:20px;
+	top:20px;
+	width:150px;
+	height:150px;
+}
+div.messagemanagerpictitle 
+{
+	position: relative; 
+	left:20px;
+	top:50px;
+	color: #ffffff;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 20px;
+	text-align: left;
+}
+
+.mmnoticelist tbody
+{
+	width:400px;
+	height:50px;
+}
+
+
+.mmnoticelist tbody tr
+{
+	height:50px;
+}
+
+
+div.mmoutlinewhole
+{
+	
+	width:100%;
+	height:30px;
+	margin-top:20px;
+}
+
+div.mmdate
+{
+	position: relative; 
+	color: #ffffff;
+	left:0px;
+	width:100px;
+	height:30px;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 30px;
+	text-align: center;
+	background-color:#e59c01;
+	border-radius:5px;
+}
+div.mmtime
+{
+	position: relative; 
+	color: #ffffff;
+	left:20px;
+	width:100px;
+	height:30px;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 30px;
+	text-align: center;
+	background-color:#c3c3c3;
+	border-radius:5px;
+}
+
+
+img.mmlookedpic
+{
+	position: relative; 
+	left:40px;
+	top:8px;
+}
+div.mmnoticeoutline
+{
+	position: relative; 
+	left:50px;
+	font-size: 15px;
+	font-weight: bold;
+	line-height: 30px;
+	text-align: left;
+	color:#707070;
+	width:450px;
+	height:30px;
+	text-overflow: ellipsis;
+	overflow:hidden;
+	white-space:nowrap; 
+}
+a.mmlookeddetail
+{
+	color: #0187ce;
+	position: relative; 
+	left:50px;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 30px;
+	text-align: center;
+}
+input.showonemmdetailbtn
+{
+	position: relative; 
+	left:50px;
+	top:10px;
+}
+
+td.mmdetaillinetd
+{
+	width:600%;
+	height:10px;
+}
+
+div.mmdetailline
+{
+	position: relative; 
+	width:100%;
+	border:1px dashed #e4e4e4;
+}
+
+div.mmtitlteline
+{
+	position: relative; 
+	width:75px;
+	height:2px;
+	margin-top:0px;
+	background-color:#e59c01;
+}
+
+div.mmdetailwhite
+{
+	position: relative; 
+	width:100%;
+	height:30px;
+	
+}
+
+div.mmdetail1
+{
+	position: relative; 
+	color: #000000;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 30px;
+	text-align: left;
+	
+}
+
+div.mmdetailword
+{
+	position: relative; 
+	left:330px;
+	color: #999999;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 30px;
+	text-align: left;
+	width:700px;
+	display:none;
+}
+
+div.mmbottom
+{
+  z-index: 100;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left:460px;
+  right: 0;
+  
+  width: 998px;
+  top:900px;
+  height:30px;
+    background-color: #F2F2F2;
+}

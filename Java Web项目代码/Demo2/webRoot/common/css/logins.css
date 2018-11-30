@@ -1,0 +1,138 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin:0;
+	padding:0;
+	}
+ul{
+	list-style:none;
+	}
+a{
+	text-decoration:none;
+	}#contents{
+	width:100%;
+	height:100%;
+	padding-top:80px;
+	background:url(../images/login/bg.jpg) no-repeat;
+	}
+.logo{
+	width:35%;
+	height:90px;
+	margin:0 auto;
+	background:url(../images/login/logo_03.png) no-repeat;
+	}
+.login{
+	width:32%;
+	height:100%;
+	margin:0 auto;
+	padding-top:60px;
+	}
+.login ul{
+	width:92%;
+	height:265px;
+	margin-left:30px;
+	}
+.login .zi{
+	width:85%;
+	height:48px;
+	margin:0 auto;
+	padding:10px;
+	}
+.login .bottom{
+	width:85%;
+	height:10px;
+	margin:0 auto;
+	padding:30px;
+	}
+.login .bottom .bqsy{
+	float:left;
+	line-height:28px;
+	padding-left:120px;
+	}
+.login .bottom .bqsy a{
+	font-family:"微软雅黑";
+	font-size:13px;
+	color:rgba(255,255,255,0.7);
+	}
+.login ul li{
+	width:100%;
+	height:55px;
+	margin-bottom:36px;
+	}
+.yhm{
+	width:65%;
+	height:50px;
+	border:none;
+	border-radius:10px;
+	background:url(../images/login/pic_07.png) no-repeat 20px center;
+	background-color:rgba(255,255,255,0.4);
+	padding-left:30%;
+	font-size:26px;
+	}
+.mm{
+	width:65%;
+	height:50px;
+	border:none;
+	border-radius:10px;
+	background:url(../images/login/pic_10.png) no-repeat 20px center;
+	background-color:rgba(255,255,255,0.4);
+	padding-left:30%;
+	font-size:26px;
+	}
+.yzm{
+	width:37%;
+	height:50px;
+	border:none;
+	border-radius:10px;
+	background:url(../images/login/yzm_12.png) no-repeat 20px center;
+	background-color:rgba(255,255,255,0.4);
+	padding-left:30%;
+	font-size:26px;
+	}
+.denglu{
+	width:80%;
+	height:50px;
+	border:none;
+	border-radius:10px;
+	background-color:rgba(255,255,255,0.4);
+	font-family:"微软雅黑";
+	font-size:25px;
+	color:#333;
+	text-align:center;
+	line-height:20px;
+	margin-left:43px;
+	}
+.denglu:hover{
+	color:#fff;
+	background-color:rgba(5,139,211,0.5);
+	}
+.login ul .li3{
+	position:relative;
+	margin-bottom:0px;
+	}
+.login ul .li3 img{
+	position:absolute;
+	left:69%;
+	top:0;
+	}
+.login .zi .wjmm{
+	float:left;
+	margin-left:10px;
+	}
+.login .zi .wjmm a{
+	font-family:"微软雅黑";
+	font-size:18px;
+	color:rgba(255,255,255,0.7);058bd3
+	}
+.login .zi .wjmm a:hover,.login .zi .zhuce a:hover{
+	color:#058bd3;
+	}
+.login .zi .zhuce{
+	float:right;
+	margin-right: 45px;
+	}
+.login .zi .zhuce a{
+	font-family:"微软雅黑";
+	font-size:18px;
+	color:rgba(255,255,255,0.7);
+	}

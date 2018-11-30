@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+
+
+
+#left{
+	width:180px;
+	height: 405px;
+	border-radius: 4px;
+	position: relative;
+	margin: 53px 65px;
+	float:left;
+}
+#center{
+	width:800px;
+	border-radius: 4px;
+	position: relative;
+	margin: 53px 10px;
+	float:left;
+}
+.collect {
+	width:180px;
+	height:260;
+	display: block;
+	padding: 10px;
+	background-color: #fff;
+	border-radius: 4px;
+	float: left;
+}
+	

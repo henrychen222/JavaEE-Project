@@ -1,0 +1,266 @@
+.top-nav {
+  background: #f7f7f7;
+  height: 38px;
+  line-height: 38px;
+}
+.top-nav .top-nav-wrap {
+  padding: 0;
+   height: 38px;
+  line-height: 38px;
+}
+.top-nav .top-nav-wrap .line {
+  top: 15px!important;
+}
+.header {
+  width: 1140px;
+  margin: 0 auto;
+  padding: 10px 0;
+    border-bottom: 1px solid #e5e5e5;
+      height: 65px;
+}
+
+
+
+.header h2.slogan {
+  color: #123457;
+  font-size: 22px;
+  font-weight: normal;
+  padding: 20px 0 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.header .slogan {
+  color: #123457;
+  font-size: 22px;
+  font-weight: normal;
+  display: block;
+  margin-top: 35px;
+}
+
+
+.header .sloganimg{
+  display: block;
+  width: 310px;
+  height: 65px;
+  float: left;
+  margin-right:20px;
+  background: url(../jhShop/logo2.png) no-repeat;
+}
+
+
+.center {
+  width: 1140px;
+  margin: 22px auto;
+  clear: both;
+}
+.center ul {
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 50px;
+  margin-bottom: 10px;
+}
+.center ul li {
+  clear: both;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.center ul li .left-tit {
+  float: left;
+  text-align: left;
+  width: 110px;
+  color: #292929;
+  font-size: 15px;
+  line-height: 35px;
+}
+.center ul li .center-cont {
+  float: left;
+}
+.center ul li .right-tip {
+  float: left;
+}
+.center .tip-txt {
+  color: #a0a0a0;
+  font-size: 12px;
+  line-height: 35px;
+  margin-left: 15px;
+}
+.center .get-code {
+  display: block;
+  background: #f2cd80;
+  color: #fff;
+  font-size: 15px;
+  line-height: 37px;
+  text-align: center;
+  border-radius: 8px;
+  padding: 0 20px;
+  height: 37px;
+  margin-left: 20px;
+}
+.center .serv-txt {
+  width: 1000px;
+  max-height: 300px;
+  overflow: auto;
+  color: #292929;
+  font-size: 13px;
+  line-height: 26px;
+  border: 1px solid #e5e5e5;
+  padding: 10px;
+  background: #f8f8f8;
+}
+.center .btn-regist {
+   display: block;
+  width: 250px;
+  background: #123457;
+  color: #fff;
+  font-size: 16px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 8px;
+  padding: 0 85px;
+  height: 50px;
+  border: 0;
+  margin: 30px auto 80px;
+}
+.center .btn-regist:hover {
+  background: #1a4169;
+}
+.center .pwd-wrap {
+  position: relative;
+}
+.center .pwd-wrap span.icon-pwd {
+  position: absolute;
+  display: block;
+  width: 15px;
+  height: 14px;
+  top: 13px;
+  right: 20px;
+  background: url(../jhShop/icon-pwd.png) no-repeat;
+}
+/* 2015-7-7 */
+
+.center .order-confirm {
+  clear: both;
+  height: 100px;
+  padding: 13px;
+  margin-top: 20px;
+}
+.center .order-confirm h2 {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 35px;
+}
+.center .order-confirm .order-status-inner {
+  width: 932px;
+  margin: 35px auto;
+}
+.center .order-confirm .order-status-inner div {
+  position: relative;
+  z-index: 1;
+  float: left;
+  width: 155px;
+  height: 6px;
+  background: url(../images/line-bg.png) repeat-x;
+}
+.center .order-confirm .order-status-inner div span.icon-num-off {
+  z-index: 2;
+  display: block;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: url(../images/order-status-off.png) no-repeat;
+}
+.center .order-confirm .order-status-inner div span.icon-num-on {
+  z-index: 2;
+  display: none;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: url(../images/order-status-on.png) no-repeat;
+}
+.center .order-confirm .order-status-inner div span.step-txt {
+  position: absolute;
+  top: 23px;
+  right: -40px;
+  display: block;
+  width: 60px;
+  color: #a0a0a0;
+  font-size: 12px;
+}
+.center .order-confirm .order-status-inner div.status1 {
+  width: 1px;
+  z-index: 7;
+}
+.center .order-confirm .order-status-inner div.status1 span.icon-num-off,
+.center .order-confirm .order-status-inner div.status1 span.icon-num-on {
+  top: -12px;
+  right: -13px;
+  background-position: 0 0;
+}
+.center .order-confirm .order-status-inner div.status2 {
+  z-index: 6;
+}
+.center .order-confirm .order-status-inner div.status2 span.icon-num-off,
+.center .order-confirm .order-status-inner div.status2 span.icon-num-on {
+  top: -12px;
+  right: -13px;
+  background-position: -121px 0;
+}
+.center .order-confirm .order-status-inner div.status3 {
+  z-index: 5;
+}
+.center .order-confirm .order-status-inner div.status3 span.icon-num-off,
+.center .order-confirm .order-status-inner div.status3 span.icon-num-on {
+  top: -12px;
+  right: -13px;
+  background-position: -243px 0;
+}
+.center .order-confirm .order-status-inner div.status4 {
+  z-index: 4;
+}
+.center .order-confirm .order-status-inner div.status4 span.icon-num-off,
+.center .order-confirm .order-status-inner div.status4 span.icon-num-on {
+  top: -12px;
+  right: -13px;
+  background-position: -364px 0;
+}
+.center .order-confirm .order-status-inner div.status5 {
+  z-index: 3;
+}
+.center .order-confirm .order-status-inner div.status5 span.icon-num-off,
+.center .order-confirm .order-status-inner div.status5 span.icon-num-on {
+  top: -12px;
+  right: -13px;
+  background-position: -485px 0;
+}
+.center .order-confirm .order-status-inner div.status6 {
+  z-index: 2;
+}
+.center .order-confirm .order-status-inner div.status6 span.icon-num-off,
+.center .order-confirm .order-status-inner div.status6 span.icon-num-on {
+  top: -12px;
+  right: -13px;
+  background-position: -606px 0;
+}
+.center .order-confirm .order-status-inner div.status7 {
+  z-index: 1;
+}
+.center .order-confirm .order-status-inner div.status7 span.icon-num-off,
+.center .order-confirm .order-status-inner div.status7 span.icon-num-on {
+  top: -12px;
+  right: -13px;
+  background-position: -728px 0;
+}
+.center .order-confirm .order-status-inner div.status7 span.step-txt {
+  right: -48px;
+}
+.center .order-confirm .order-status-inner div.active {
+  background: url(../images/line-on-bg.png) repeat-x;
+}
+.center .order-confirm .order-status-inner div.active span.step-txt {
+  color: #292929;
+}
+.center .order-confirm .order-status-inner div.active span.icon-num-off {
+  display: none;
+}
+.center .order-confirm .order-status-inner div.active span.icon-num-on {
+  display: block;
+}

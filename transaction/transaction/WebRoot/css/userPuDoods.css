@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+
+
+
+#left{
+	width:180px;
+	height: 405px;
+	border-radius: 4px;
+	position: relative;
+	margin: 53px 65px;
+	float:left;
+}
+
+#center{
+	width:535px;
+	height: 510px;
+	border-radius: 4px;
+	position: relative;
+	margin: 53px 30px;
+	float:left;
+}
+
+#right{
+	
+	position: relative;
+	margin: 53px 80px;
+	float:left;
+}

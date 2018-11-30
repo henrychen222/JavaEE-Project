@@ -1,0 +1,46 @@
+/*side-mask*/
+.side-mask{position: fixed;height: 100%;width: 40px;background: #333;right: 0;top: 0;z-index: 999999;opacity:0.67;}
+.side-mask .mask-mi{height: 330px;position: absolute;top: 40%;margin-top: -165px;}
+.side-mask .personal-center{position: relative;}
+.side-mask .tip{position: absolute;width: 115px;padding-right: 6px;text-align: center;line-height: 40px;height: 40px;color: #fff;right: 40px;top: 0;z-index: 999;display: none;opacity: 0;} 
+.side-mask .tip a{display: block;height: 40px;width: 115px;color: #fff;background: #333;}
+.side-mask .tip a img{display: inline;vertical-align: baseline;}
+
+.side-mask .mask-icon,.side-mask .s-btn{width: 40px;height: 40px;display: block;cursor: pointer;}
+.side-mask .personal-center .s-btn .mask-icon{background: url(../images/personal-icon.png) no-repeat center;}
+/* .side-mask .mask-tip:hover .s-btn,.mask-mi .b-btn:hover,.mask-mi .b-btn.on{background: #f6f6f6;color:#123457} */ 
+.side-mask .shopcar{position: relative;border-top: 1px solid #000;border-bottom: 1px solid #6f6f6f;margin: 10px 0;}
+.side-mask .shopcar .mask-icon{background: url(../images/shopcar-icon.png) no-repeat center;position: relative;}
+.side-mask .shopcar .b-btn{width: 40px;display: block;cursor: pointer;padding:0 0 10px 0;border-top: 1px solid #6f6f6f;border-bottom: 1px solid #000;}
+.side-mask .shopcar .b-btn b{display: block;width: 14px;margin: 0 auto;color: #fff;}
+.side-mask .shopcar .b-btn .shopcar-num{width: 25px;height: 25px;margin: 0 auto;background: #d50000;color: #fff;text-align: center;display: block;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;-o-border-radius: 50%;line-height: 25px;font-style: normal;margin-top: 10px;}
+.side-mask .collect{position: relative;}
+.side-mask .collect .s-btn .mask-icon{background: url(../images/collect-icon.png) no-repeat center;}
+.side-mask .pkbar{position: relative;}
+.side-mask .pkbar .s-btn .mask-icon{background: url(../images/pk-icon.png) no-repeat center;}
+.side-mask .now-product{position: relative;}
+.side-mask .now-product .s-btn .mask-icon{background: url(../images/now-icon.png) no-repeat center;}
+.side-mask .mask-bar{position: absolute;bottom: 10px;}
+.side-mask .qq-contact{position: relative;}
+.side-mask .qq-contact .s-btn .mask-icon{background: url(../images/qq-icon.png) no-repeat center;}
+.side-mask .serve-contact{position: relative;}
+.side-mask .serve-contact .s-btn .mask-icon{background: url(../images/qq-icon2.png) no-repeat center;}
+.side-mask .top-back{position: relative;}
+.side-mask .top-back .s-btn .mask-icon{background: url(../images/top-icon.png) no-repeat center;}
+/* .side-mask .pkbar:hover .s-btn,.side-mask .pkbar.on .s-btn{background: #78bc27;} */
+
+.side-mask .mask-login{width: 280px;height: 175px;background: #f9f9f9;position: absolute;top: 20%;right: 50px;padding-top: 30px;box-shadow: -2px 2px 5px #ccc;-webkit-box-shadow: -2px 2px 5px #ccc;-moz-box-shadow: -2px 2px 5px #ccc;-o-box-shadow: -2px 2px 5px #ccc;display: none;opacity: 0;}
+.side-mask .mask-login .close{color: #666;font-size: 14px;font-weight: bold;position: absolute;right: 10px;top: 10px;cursor: pointer;}
+.side-mask .mask-login dl{overflow: hidden;clear: both;width: 212px;margin: 0 auto;margin-bottom: 15px;height: 30px;}
+.side-mask .mask-login dl dt{float: left;width: 30px;height: 30px;}
+.side-mask .mask-login dl.username dt{background: url(../images/username-icon.jpg) no-repeat center;}
+.side-mask .mask-login dl.password dt{background: url(../images/password-icon.jpg) no-repeat center;}
+.side-mask .mask-login dl dd{width: 180px;height: 28px;border:1px solid #ddd;float: left;}
+.side-mask .mask-login dl dd input{width: 170px;padding: 0 5px;height: 28px;line-height: 28px;color: #999;font-size: 12px;border:0;background: none;}
+.side-mask .mask-login .password .back{display: none;}
+.side-mask .mask-login .submit{width: 212px;margin: 0 auto;padding-top: 10px;clear: both;}
+.side-mask .mask-login .submit input{width: 100%;height: 30px;background: #78bc27;color: #fff;line-height: 30px;text-align: center;border:0;cursor: pointer;}
+.side-mask .mask-login .mask-login-tip{clear: both;overflow: hidden;padding-top: 15px;width: 212px;margin: 0 auto;}
+.side-mask .mask-login .mask-login-tip a{color: #4f9000;font-size: 12px;}
+.side-mask .mask-login .mask-login-tip .mask-register{float: left;}
+.side-mask .mask-login .mask-login-tip .mask-forget{float: right;}

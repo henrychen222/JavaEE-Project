@@ -1,0 +1,25 @@
+.orderlist th {
+	text-align: center;
+	margin: 0;
+}
+
+.orderlist th .checkboxClass {
+	display: block;
+	margin-top: 7px;
+}
+
+a.btn-option {
+	border: 1px solid #ee4e4e;
+	color: #ee4e4e;
+	height: 23px;
+	line-height: 23px;
+	width: 60px;
+	margin: 5px auto;
+	border-radius: 5px;
+	display: block;
+}
+
+a.btn-option:HOVER {
+	background: #ee4e4e;
+	color: #FFFFFF;
+}

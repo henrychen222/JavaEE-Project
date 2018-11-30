@@ -1,0 +1,126 @@
+.top-nav{ background: #f7f7f7;
+    .top-nav-wrap{ padding: 0;}
+}
+.header{ width: 1240px; margin: 0 auto; padding: 13px 0;
+    .logo-wrap{ float: left;
+        .logo{ display: block; width: 172px; height: 65px; float: left; background: url(../jhShop/logo2.png) no-repeat; }
+        .logo-tip{width: 123px; height: 34px; margin:23px 0 0 23px; float: left; background: url(../jhShop/logo2-right.png) no-repeat;}
+    }
+    /* 搜索bar */
+    .search-bar-wrap{  float: left; margin-left: 56px; margin-top: 16px; border:0;
+        .input-txt{ float: left;height: 28px;  line-height: 28px;text-align: left; color: #adadad;border: 2px solid #e69b02; border-right:0;}
+        a.sear-btn, a.sear-shop-btn{ display: block; padding: 0 13px; height:32px; line-height: 32px; float: left; background: #e69b02; color: #fff; font-size: 18px;border: 2px solid #e69b02;}
+        a.sear-btn:hover, a.sear-shop-btn:hover{ background: #123457; border-color:#123457;}
+        a.sear-shop-btn{ margin-left:2px;}
+    }
+    .right-infor{ float: right;
+        ul{
+            li{ float: left; display: block; background: #f9f9f9; width: 139px; height: 50px; margin-left: 2px; margin-top: 9px;
+                p{ text-align: center; font-size: 12px; color: #a0a0a0; font-family: "SimSun";}
+                p.num{ font-weight: bold; font-size: 24px; font-family: "Microsoft YaHei"; color: #ee4e4e; margin-top: 4px; line-height: 26px;
+                    img{ margin: -3px 0 0 5px;}
+                }
+            }
+        }
+    }
+}
+
+.center{ width:1240px; margin: 20px auto 0; clear: both; overflow: hidden; border-top: 1px solid #123457;
+    .cart-tit{ height: 42px; line-height: 42px;
+        .left{ float: left; font-size: 14px;
+            span{ color: #a0a0a0; font-size: 12px; margin-left: 23px;}
+        }
+        .right{ float: right;font-size: 12px; color: #292929;
+            span{ color: #ee4e4e;
+                i{ font-size: 18px; font-style: normal;}
+            }
+        }
+    }
+    .list-header{ clear: both; height: 32px; line-height: 32px; background: #dfdfdf; color: #292929; font-size: 14px;
+        .checkbox{ float: left; margin-left: 11px; width: 14.5%;
+            input{ margin-right: 15px;}
+        }
+        .pro-infor{ float: left; width: 35.5%;}
+        .pro-price{ float: left; width: 10.3%;}
+        .amount{ float: left; width: 11.5%;}
+        .param{ float: left; width: 17%;}
+        .option{ float: left;}
+    }
+    .selected-pro-wrap{ font-size:12px; clear: both;
+        .order-infor-wrap{ padding: 0 14px; color: #000; font-size: 12px; height: 44px; line-height: 48px;
+            .order-shopname{ float: left; margin-right: 65px;
+                input{ margin-right: 15px;}
+                span{
+                    i{ color: #646464; font-style: normal; }
+                }
+            }
+            .order-del{float: left; margin-right: 65px;
+                a:hover{ color:#e69b02;}
+            }
+            .online-ser{float: left; margin-right: 65px;
+                img{ width: 20px;}
+            }
+            .shop-tel{float: left; margin-right: 65px;}
+            .shop-addr{
+                span{ color: #646464}
+            }
+        }
+        .pro-wrap{ background:#f2f2f2; border:1px solid #e3e3e3; border-bottom: 0; clear: both;
+            .pro-top{  padding: 0 24px; border-bottom: 1px solid #e3e3e3;
+                ul{
+                    li{ border-bottom: 1px solid #e3e3e3; padding: 13px 0; overflow: hidden; font-size: 12px; color: #383838;
+                        .checkbox-item{ float: left;}
+                        .pro-img{float: left; width: 150px; height: 105px; margin-left: 10px;}
+                        .pro-infor{float: left; width: 346px; height: 105px; padding: 0 22px; position: relative;
+                            .pro-name{ line-height: 18px; margin-top: 12px; width: 265px;}
+                            .pro-serv{ position: absolute; bottom: 0; left: 22px; }
+                        }
+                        .pro-price{float: left; width: 86px;padding: 0 22px; text-align: center;
+                            .old{ margin-top: 12px; text-decoration:line-through;}
+                            .new{ color: #ee4e4e; 
+                                i{font-size:18px; font-style: normal;}
+                            }
+                        }
+                        .pro-amount{float: left; width: 121px;padding: 0 22px; margin-top: 16px;
+                            a.num-add, a.num-minus{ display: block; float: left; font-size:18px; width: 22px; height: 22px; line-height: 22px; text-align: center; border-top:1px solid #dedede; border-bottom:1px solid #dedede;}
+                            a.num-add:hover, a.num-minus:hover{ background: #e69b02; color: #fff;}
+                            a.num-add{ border-right:1px solid #dedede;}
+                            .num-detail{ background: #fff; float: left; padding: 0 10px; height: 22px; line-height: 22px; border: 1px solid #dedede; text-align: center;}
+                            a.num-minus{ border-left:1px solid #dedede;}
+                        }
+                        .pro-param{float: left; width: 121px;padding: 12px 22px; cursor: pointer; }
+                        .pro-option{float: left; width: 121px;padding: 12px 22px; text-align: center;
+                            a{ display: block; margin-bottom: 8px;}
+                        }
+                        a:hover{ color: #e69b02}
+                    }
+                }
+                .tip-wrap{ padding: 15px 0; overflow: hidden;
+                    .tit{ float: left; margin-right: 5px; }
+                    .cont{ float: left;
+                        a{ text-decoration: underline;}
+                    }
+                }
+            }
+            .pro-bottom{ background: #fff; padding: 15px; color: #646464; border-bottom: 1px solid #e3e3e3; line-height: 22px; overflow: hidden;
+                h2{ font-size:14px; font-weight: normal; color: #383838;}
+                p{ padding: 0 10px;}
+                ul{ padding: 0 10px;}
+                ul li{ float: left; width: 150px; margin-right: 145px;}
+                .pro-size{ margin-top: 5px;}
+            }
+        }
+        .pro-price-wrap{ margin-top: 10px; overflow: hidden;
+            .pro-price-inner{ float: right;
+                .price-item{ float: left; color: #171717; margin-right: 35px; line-height: 38px;
+                    span{ color: #ee4e4e; font-size:12px;
+                        i{ font-style: normal; font-size: 18px;}
+                    }
+                }
+                .btn-submit{ float: left; background: #ee4e4e; color: #fff; font-size: 14px; height: 34px; line-height: 34px; text-align: center; border-radius: 8px; width: 120px;}
+                .btn-submit:hover{ background: #dd3838;}
+            }
+        }
+    }
+    .page-nav{ margin-bottom: 50px; margin-top: 20px;}
+}

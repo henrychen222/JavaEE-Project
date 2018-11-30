@@ -1,0 +1,44 @@
+/* 分页 */
+.page-nav2 {
+  text-align: center;
+}
+.page-nav2 a {
+  display: inline-block;
+  margin: 0 7.5px;
+  width: 36px;
+  overflow: hidden;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  font-size: 14px;
+  color: #616161;
+  background: #f2f2f2;
+}
+.page-nav2 a:hover,
+.page-nav2 a.prev-page:hover,
+.page-nav2 a.next-page:hover {
+  background-color: #d6d4d4;
+}
+.page-nav2 a.active {
+  background: #3e3e3e;
+  color: #fff;
+  cursor: default;
+}
+.page-nav2 a.active:hover {
+  background-color: #3e3e3e;
+}
+.page-nav2 a.prev-page {
+  text-indent: 40px;
+  background: #f2f2f2 url(../images/arrow-left3.png) no-repeat center center;
+}
+.page-nav2 a.next-page {
+  text-indent: 40px;
+  background: #f2f2f2 url(../images/arrow-right5.png) no-repeat center center;
+}
+.page-nav2 span {
+  display: inline-block;
+  margin: 0;
+  overflow: hidden;
+  height: 36px;
+  line-height: 36px;
+}

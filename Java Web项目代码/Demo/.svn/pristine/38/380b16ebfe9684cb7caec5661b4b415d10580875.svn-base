@@ -1,0 +1,6 @@
+record.file.using=false
+record.file.path=c:/logs/pay_record.txt
+#institutionId=000020
+institutionId=001534
+notification.url=http://127.0.0.1:8080/WmShop/pay/tx1318.do
+redirect.url=/content/redirect.jsp

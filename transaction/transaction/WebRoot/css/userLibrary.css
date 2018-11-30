@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+
+
+#left{
+	width:180px;
+	border-radius: 4px;
+	position: relative;
+	margin: 53px 65px;
+	float:left;
+}
+#center{
+	width:800px;
+	border-radius: 4px;
+	position: relative;
+	margin: 53px 10px;
+	float:left;
+}

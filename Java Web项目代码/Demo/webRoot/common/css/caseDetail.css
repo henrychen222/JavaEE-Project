@@ -1,0 +1,95 @@
+@charset "utf-8";
+/** 重置图片元素 **/
+img {
+  border: 0;
+}
+/* 字体 reset */
+body {
+  font-size: 14px;
+  font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+  color: #000;
+}
+.font-big {
+  font-size: 16px;
+}
+/* 字体-大号 */
+.font-middle {
+  font-size: 15px;
+}
+/* 字体-中号 */
+.font-small {
+  font-size: 14px;
+}
+/* 字体-小号 */
+/* css reset */
+html,
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+input,
+textarea,
+p,
+th,
+td,
+img,
+span {
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol {
+  list-style: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  text-decoration: none;
+  color: #000000;
+}
+a:hover {
+  text-decoration: none;
+  color: #000000;
+}
+input {
+  border: 0;
+  font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+}
+input[type='submit'],
+input[type='button'] {
+  cursor: pointer;
+}
+img {
+  border: 0;
+}
+iframe {
+  border: 0;
+}
+/* 清浮动 */
+.clear {
+  clear: both;
+}
+.clear-no-height {
+  height: 0;
+  clear: both;
+}
+/* 浮动 */
+.f-r {
+  float: right;
+}
+.f-l {
+  float: left;
+}

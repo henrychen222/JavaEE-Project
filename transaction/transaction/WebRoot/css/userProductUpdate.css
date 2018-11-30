@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+
+
+
+#left{
+	width:180px;
+	height: 405px;
+	border-radius: 4px;
+	position: relative;
+	margin: 53px 65px;
+	float:left;
+}
+#center{
+	width:700px;
+	height: 510px;
+	border-radius: 4px;
+	position: relative;
+	margin: 53px 40px;
+	float:left;
+}
